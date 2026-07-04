@@ -185,7 +185,6 @@ const MORPH_IMAGES = {
   "パターンレス": "img/5patternless.png",
   "ゴースト": "img/6ghost.png",
   "アメル": "img/7amel.png",
-  "オレオズールー": "img/3oreo.png",
   "ノーマル": "img/1normal.png"
 };
 
@@ -210,7 +209,6 @@ const UI_CONFIG = {
   Patternless: { name: "パターンレス", type: "base", locus: "Patternless", group: "base", options: [["homo", "パターンレス"], ["het", "Het パターンレス"]] },
   Ghost: { name: "ゴースト", type: "base", locus: "Ghost", group: "base", options: [["homo", "ゴースト"], ["het", "Het ゴースト"]] },
   Amelanistic: { name: "アメル", type: "base", locus: "Amelanistic", group: "base", options: [["homo", "アメル"], ["het", "Het アメル"]] },
-  OreoZulu: { name: "オレオズールー", type: "combo", group: "combo", options: [["homo", "オレオズールー"]], affects: ["Oreo", "Zulu"] },
   Snow: { name: "スノー", type: "combo", group: "combo", options: [["homo", "スノー"], ["het", "Het スノー"]], affects: ["Oreo", "Caramel"] },
   Albino: { name: "ラキビノ", type: "combo", group: "combo", options: [["homo", "ラキビノ"], ["het", "Het ラキビノ"]], affects: ["Amelanistic", "Caramel"] },
   Albio: { name: "ラキビオ", type: "combo", group: "combo", options: [["homo", "ラキビオ"], ["het", "Het ラキビオ"]], affects: ["Amelanistic", "Caramel", "Oreo"] },
@@ -236,13 +234,12 @@ const COMBO_RULES = [
   { name: "ラキビオ", requires: ["アメラニスティック（アメル）", "キャラメル", "オレオ"] },
   { name: "パープルヘイズ", requires: ["ゴースト", "オレオ", "パターンレス"] },
   { name: "ラキビノ", requires: ["アメラニスティック（アメル）", "キャラメル"] },
-  { name: "スノー", requires: ["オレオ", "キャラメル"] },
-  { name: "オレオズールー", requires: ["オレオ", "ズールー"] }
+  { name: "スノー", requires: ["オレオ", "キャラメル"] }
 ];
 
 const TARGET_MORPHS = [
   "ノーマル", "ホワイトアウト", "オレオ", "ズールー", "キャラメル", "パターンレス", "ゴースト", "アメル",
-  "オレオズールー", "スノー", "ラキビノ", "ラキビオ", "パープルヘイズ", "ゴールドヘイズ"
+  "スノー", "ラキビノ", "ラキビオ", "パープルヘイズ", "ゴールドヘイズ"
 ];
 
 // ==========================================
@@ -576,7 +573,7 @@ function generateFilteredIndividualParams() {
     baseGenes.forEach(gene => {
         if (gene === "Whiteout") { pool.push({ [gene]: "het" }); } else { pool.push({ [gene]: "het" }); pool.push({ [gene]: "homo" }); }
     });
-    const comboKeys = ["OreoZulu", "Snow", "Albino", "Albio", "PurpleHaze", "GoldHaze"];
+    const comboKeys = ["Snow", "Albino", "Albio", "PurpleHaze", "GoldHaze"];
     comboKeys.forEach(ckey => { pool.push({ [ckey]: "homo" }); });
     baseGenes.forEach(gene => { if(gene !== "Whiteout") pool.push({ Whiteout: "het", [gene]: "homo" }); });
     return pool;
@@ -585,7 +582,7 @@ function generateFilteredIndividualParams() {
 function getMorphLabelFromParam(param) {
     let parts = [];
     if (param.Whiteout === "het") parts.push("ホワイトアウト");
-    const comboKeys = ["GoldHaze", "PurpleHaze", "Albio", "Albino", "Snow", "OreoZulu"];
+    const comboKeys = ["GoldHaze", "PurpleHaze", "Albio", "Albino", "Snow"];
     let checkBase = true;
     for (const ck of comboKeys) { if (param[ck] === "homo") { parts.push(UI_CONFIG[ck].name); checkBase = false; break; } }
     if (checkBase) {
