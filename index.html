@@ -221,8 +221,8 @@ const UI_CONFIG = {
   Snow: { name: "スノー", type: "combo", group: "combo", options: [["homo", "スノー"], ["het", "Het スノー"]], affects: ["Oreo", "Caramel"] },
   Albino: { name: "ラキビノ", type: "combo", group: "combo", options: [["homo", "ラキビノ"], ["het", "Het ラキビノ"]], affects: ["Amelanistic", "Caramel"] },
   Albio: { name: "ラキビオ", type: "combo", group: "combo", options: [["homo", "ラキビオ"], ["het", "Het ラキビオ"]], affects: ["Amelanistic", "Caramel", "Oreo"] },
-  PurpleHaze: { name: "パープルヘイズ", type: "combo", group: "combo", options: [["homo", "パープルヘイズ"]], affects: ["Ghost", "Oreo", "Patternless"] },
-  GoldHaze: { name: "ゴールドヘイズ", type: "combo", group: "combo", options: [["homo", "ゴールドヘイズ"]], affects: ["Ghost", "Caramel", "Oreo", "Patternless"] }
+  PurpleHaze: { name: "パープルヘイズ", type: "combo", group: "combo", options: [["homo", "パープルヘイズ"], ["het", "Het パープルヘイズ"]], affects: ["Ghost", "Oreo", "Patternless"] },
+  GoldHaze: { name: "ゴールドヘイズ", type: "combo", group: "combo", options: [["homo", "ゴールドヘイズ"], ["het", "Het ゴールドヘイズ"]], affects: ["Ghost", "Caramel", "Oreo", "Patternless"] }
 };
 
 // 遺伝計算用コア座
@@ -341,8 +341,9 @@ function createSelectors() {
 // ==========================================
 // 【計算コアロジック】
 // ==========================================
-function getParentDataFromObject(paramObj) {
+function getParentDataFromObject(paramObj, options = {}) {
     const states = { Normal: "none", Whiteout: "none", Zulu: "none", Oreo: "none", Caramel: "none", Patternless: "none", Ghost: "none", Amelanistic: "none" };
+    const comboMode = options.comboMode || "strict";
     function maxState(s1, s2) {
         if (s1 === "homo" || s2 === "homo") return "homo";
         if (s1 === "het" || s2 === "het") return "het";
@@ -355,6 +356,8 @@ function getParentDataFromObject(paramObj) {
         if (item.type === "base") {
             states[item.locus] = maxState(states[item.locus], val);
         } else if (item.type === "combo") {
+            // 見た目のコンボ選択は、選択した状態そのものを基礎遺伝子へ反映する。
+            // 例: パープルヘイズを「パープルヘイズ」と選択した場合は、そのままホモとして扱う。
             item.affects.forEach(locus => { states[locus] = maxState(states[locus], val); });
         }
     }
@@ -373,13 +376,13 @@ function getParentDataFromObject(paramObj) {
     return data;
 }
 
-function getParentData(prefix) {
+function getParentData(prefix, options = {}) {
     const paramObj = {};
     for (const key in UI_CONFIG) {
         const el = document.getElementById(`${prefix}_${key}`);
         paramObj[key] = el ? el.value : "none";
     }
-    return getParentDataFromObject(paramObj);
+    return getParentDataFromObject(paramObj, options);
 }
 
 function checkBreedingAlerts() {
@@ -488,7 +491,8 @@ function calculateOffspring(p1, p2) {
 
     let tempVisuals = [...visuals];
     for (const rule of COMBO_RULES) {
-      if (rule.requires.every(req => tempVisuals.includes(req))) {
+      const hasVisualCombo = rule.requires.every(req => tempVisuals.includes(req));
+      if (hasVisualCombo) {
         tempVisuals = tempVisuals.filter(v => !rule.requires.includes(v));
         tempVisuals.push(rule.name);
       }
@@ -524,6 +528,7 @@ function calculateOffspring(p1, p2) {
       finalMorphName = (finalMorphName === "ノーマル") ? "ノーマル " + hetStrings.join(" ") : finalMorphName + " " + hetStrings.join(" ");
     }
     finalMorphName = finalMorphName.replace(/アメラニスティック（アメル）/g, "アメル");
+    finalMorphName = finalMorphName.replace(/Het アメル/g, "Het アメル");
     finalResults.push({ morphName: finalMorphName, percentage: parseFloat((group.totalProbability * 100).toFixed(2)) });
   }
   return finalResults.sort((a, b) => b.percentage - a.percentage);
@@ -549,8 +554,8 @@ function runCalculation() {
     checkBreedingAlerts();
     if (isAllUnselected) { container.innerHTML = ''; return; }
 
-    const p1 = getParentData('p1');
-    const p2 = getParentData('p2');
+    const p1 = getParentData('p1', { comboMode: 'strict' });
+    const p2 = getParentData('p2', { comboMode: 'strict' });
     const results = calculateOffspring(p1, p2);
     
     container.innerHTML = '';
@@ -578,30 +583,61 @@ function runCalculation() {
 function generateFilteredIndividualParams() {
     const pool = [];
     const baseGenes = ["Whiteout", "Zulu", "Oreo", "Caramel", "Patternless", "Ghost", "Amelanistic"];
+
     pool.push({});
     baseGenes.forEach(gene => {
-        if (gene === "Whiteout") { pool.push({ [gene]: "het" }); } else { pool.push({ [gene]: "het" }); pool.push({ [gene]: "homo" }); }
+        if (gene === "Whiteout") {
+            pool.push({ [gene]: "het" });
+        } else {
+            pool.push({ [gene]: "het" });
+            pool.push({ [gene]: "homo" });
+        }
     });
+
     const comboKeys = ["Snow", "Albino", "Albio", "PurpleHaze", "GoldHaze"];
-    comboKeys.forEach(ckey => { pool.push({ [ckey]: "homo" }); });
+    comboKeys.forEach(ckey => {
+        pool.push({ [ckey]: "het" });
+        pool.push({ [ckey]: "homo" });
+    });
+
+    const comboIngredientProfiles = [
+        { Oreo: "homo", Caramel: "homo" },
+        { Amelanistic: "homo", Caramel: "homo" },
+        { Amelanistic: "homo", Caramel: "homo", Oreo: "homo" },
+        { Ghost: "homo", Oreo: "homo", Patternless: "homo" },
+        { Ghost: "homo", Caramel: "homo", Oreo: "homo", Patternless: "homo" }
+    ];
+    comboIngredientProfiles.forEach(profile => pool.push(profile));
+
     baseGenes.forEach(gene => { if(gene !== "Whiteout") pool.push({ Whiteout: "het", [gene]: "homo" }); });
     return pool;
 }
 
 function getMorphLabelFromParam(param) {
-    let parts = [];
-    if (param.Whiteout === "het") parts.push("ホワイトアウト");
-    const comboKeys = ["GoldHaze", "PurpleHaze", "Albio", "Albino", "Snow"];
-    let checkBase = true;
-    for (const ck of comboKeys) { if (param[ck] === "homo") { parts.push(UI_CONFIG[ck].name); checkBase = false; break; } }
-    if (checkBase) {
-        for (const key in UI_CONFIG) {
-            if (UI_CONFIG[key].type === "base" && key !== "Whiteout" && key !== "Normal") {
-                if (param[key] === "homo") parts.push(UI_CONFIG[key].name);
-                else if (param[key] === "het") parts.push("Het " + UI_CONFIG[key].name);
+    const parts = [];
+
+    for (const key of Object.keys(UI_CONFIG)) {
+        const val = param[key];
+        if (!val || val === "none") continue;
+
+        const config = UI_CONFIG[key];
+        if (config.type === "base") {
+            if (key === "Whiteout") {
+                if (val === "het") parts.push("ホワイトアウト");
+            } else if (val === "homo") {
+                parts.push(config.name);
+            } else if (val === "het") {
+                parts.push(`Het ${config.name}`);
+            }
+        } else if (config.type === "combo") {
+            if (val === "homo") {
+                parts.push(config.name);
+            } else if (val === "het") {
+                parts.push(`Het ${config.name}`);
             }
         }
     }
+
     return parts.length > 0 ? parts.join(" ") : "ノーマル";
 }
 
@@ -636,20 +672,28 @@ function selectReverseTarget(targetMorph) {
                     continue; 
                 }
 
-                // 🌟 【安全フィルター2】メス親（p2）のキャラメル・ゴーストのホモ体（コンボ含む）を排除
+                // 🌟 【安全フィルター2】ホワイトアウト以外の繁殖難易度フィルターは、対象コンボモルフの計算が出るように緩和する
                 const p2HasVisualCaramel = (p2.Caramel === 'homo' || p2.Snow === 'homo' || p2.Albino === 'homo' || p2.Albio === 'homo' || p2.GoldHaze === 'homo');
                 const p2HasVisualGhost = (p2.Ghost === 'homo' || p2.PurpleHaze === 'homo' || p2.GoldHaze === 'homo');
-                if (p2HasVisualCaramel || p2HasVisualGhost) {
-                    continue; 
+                if ((p2HasVisualCaramel || p2HasVisualGhost) && (p1.Whiteout === 'het' || p2.Whiteout === 'het')) {
+                    continue;
                 }
 
-                const p1Data = getParentDataFromObject(p1);
-                const p2Data = getParentDataFromObject(p2);
+                if (JSON.stringify(p1) === JSON.stringify(p2)) {
+                    continue;
+                }
+
+                const p1Data = getParentDataFromObject(p1, { comboMode: 'carrier' });
+                const p2Data = getParentDataFromObject(p2, { comboMode: 'carrier' });
                 const offspring = calculateOffspring(p1Data, p2Data);
                 const found = offspring.find(child => child.morphName === targetMorph || child.morphName.startsWith(targetMorph + " "));
                 
-                if (found && found.percentage > 0) {
-                    matches.push({ p1: p1, p2: p2, p1Label: getMorphLabelFromParam(p1), p2Label: getMorphLabelFromParam(p2), percentage: found.percentage });
+                if (found && found.percentage > 0 && found.percentage < 100) {
+                    const isTrivialHighChance = found.percentage >= 25;
+                    const hasHetInLabels = (getMorphLabelFromParam(p1) + getMorphLabelFromParam(p2)).includes('Het ');
+                    if (!isTrivialHighChance || hasHetInLabels) {
+                        matches.push({ p1: p1, p2: p2, p1Label: getMorphLabelFromParam(p1), p2Label: getMorphLabelFromParam(p2), percentage: found.percentage });
+                    }
                 }
             }
         }
