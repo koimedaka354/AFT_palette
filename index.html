@@ -181,12 +181,10 @@ let currentSelectedReverseMorph = '';
 // ==========================================
 // 【画像・パスマップ】
 // ==========================================
+// 表示順は「一般的なモルフ → 珍しいモルフ」の順に並べ、
+// 配合しやすいモルフを一覧上部に置く。
 const MORPH_IMAGES = {
-  "ゴールドヘイズ": "img/12gold_haze.png",
-  "パープルヘイズ": "img/11purple_haze.png",
-  "ラキビオ": "img/10rakibio.png",
-  "ラキビノ": "img/9rakibino.png",
-  "スノー": "img/8snow.png",
+  "ノーマル": "img/1normal.png",
   "ホワイトアウト": "img/13whiteout.png",
   "オレオ": "img/3oreo.png",
   "ズールー": "img/2zulu.png",
@@ -194,7 +192,11 @@ const MORPH_IMAGES = {
   "パターンレス": "img/5patternless.png",
   "ゴースト": "img/6ghost.png",
   "アメル": "img/7amel.png",
-  "ノーマル": "img/1normal.png"
+  "スノー": "img/8snow.png",
+  "ラキビノ": "img/9rakibino.png",
+  "ラキビオ": "img/10rakibio.png",
+  "パープルヘイズ": "img/11purple_haze.png",
+  "ゴールドヘイズ": "img/12gold_haze.png"
 };
 
 function getMorphImageUrl(morphName) {
@@ -246,6 +248,7 @@ const COMBO_RULES = [
   { name: "スノー", requires: ["オレオ", "キャラメル"] }
 ];
 
+// 生まれる組み合わせの一覧では、配合しやすい一般的なモルフを上、珍しいモルフを下に配置する。
 const TARGET_MORPHS = [
   "ノーマル", "ホワイトアウト", "オレオ", "ズールー", "キャラメル", "パターンレス", "ゴースト", "アメル",
   "スノー", "ラキビノ", "ラキビオ", "パープルヘイズ", "ゴールドヘイズ"
