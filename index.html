@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ニシアフ・パレット</title>
+    <meta name="description" content="ニシアフリカトカゲモドキのモルフ交配結果を無料で計算できるブリーダー向けツール。親のモルフを選ぶだけで生まれてくる子の見た目と確率を予測。欲しいモルフから親の組み合わせを逆算検索もできます。">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ニシアフ・パレット｜ニシアフリカトカゲモドキ モルフ計算ツール">
+    <meta property="og:description" content="ニシアフリカトカゲモドキのモルフ交配結果を無料で計算できるブリーダー向けツール。親のモルフを選ぶだけで生まれてくる子の見た目と確率を予測。欲しいモルフから親の組み合わせを逆算検索もできます。">
+    <meta property="og:image" content="https://koimedaka354.github.io/AFT_palette/img/top.png">
+    <meta property="og:url" content="https://koimedaka354.github.io/AFT_palette/">
+    <meta name="twitter:card" content="summary_large_image">
     <style>
         body { font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif; background-color: #f5f4ec; color: #3d2e24; margin: 0; padding: 20px 15px; }
         .container { max-width: 1200px; margin: 0 auto; background: #fff; padding: 25px; border-radius: 16px; box-shadow: 0 4px 20px rgba(92, 70, 54, 0.05); }
@@ -137,6 +144,10 @@
         <img class="top-hero-image" src="img/top.png" alt="ニシアフ・パレット" />
     </div>
 
+    <div class="reverse-instruction" style="text-align:left; margin-bottom: 20px;">
+        🦎 ニシアフ・パレットは、ニシアフリカトカゲモドキの交配結果を予測するモルフ計算ツールです。「通常ブリード計算」では親2匹のモルフを選ぶと生まれてくる子の見た目と確率を一覧表示。「モルフから逆引き検索」では欲しいモルフを選ぶと、生まれやすい親の組み合わせを検索できます。結果はメンデルの遺伝法則に基づく統計的な予測であり、実際の孵化結果を保証するものではありません。
+    </div>
+
     <div class="header-box">
         <h1>ニシアフ・パレット</h1>
         <button class="share-btn" onclick="copyShareUrl()">🔗 この状態のURLをコピー</button>
@@ -151,6 +162,10 @@
         <div style="display: flex; justify-content: flex-end; margin-bottom: 15px;">
             <button class="reset-btn" onclick="resetAll()">すべて「選択しない」に戻す</button>
         </div>
+        <div class="reverse-instruction" style="text-align:left; font-weight: normal; font-size: 13px;">
+            💡 用語ミニ解説：「Het」はその遺伝子を1つだけ持つ保因個体（見た目には出ません）、無印はホモ接合体（見た目に表現される状態）を指します。
+        </div>
+
         <div class="parent-select-box">
             <div class="parent-panel">
                 <h2>親 1 (♂ オス)</h2>
