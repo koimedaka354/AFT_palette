@@ -84,7 +84,7 @@ function calculateOffspring(p1,p2){
         for(const locus of hets) groupResults[visualNameBase].hetProbabilities[locus]+=item.probability;
     }
     const final=[];
-    for(const vBase in groupResults){ const group=groupResults[vBase]; const hets=[]; for(const locus of loci){ if(locus==='Normal'||GENE_CONFIG[locus].type!=='recessive') continue; const hetProbInGroup=group.hetProbabilities[locus]; if(hetProbInGroup>0){ const perc=Math.round((hetProbInGroup/group.totalProbability)*100); if(perc===67) perc=66; if(perc===34) perc=33; const name=GENE_CONFIG[locus].name; if(perc===100) hets.push(`Het ${name}`); else if(perc>0) hets.push(`${perc}% Poss Het ${name}`); }} let name = group.visualNameBase; if(hets.length>0){ name = (name==='ノーマル' ? 'ノーマル '+hets.join(' ') : name+' '+hets.join(' ')); } final.push({ morphName:name, percentage:parseFloat((group.totalProbability*100).toFixed(2)) }); }
+    for(const vBase in groupResults){ const group=groupResults[vBase]; const hets=[]; for(const locus of loci){ if(locus==='Normal'||GENE_CONFIG[locus].type!=='recessive') continue; const hetProbInGroup=group.hetProbabilities[locus]; if(hetProbInGroup>0){ let perc=Math.round((hetProbInGroup/group.totalProbability)*100); if(perc===67) perc=66; if(perc===34) perc=33; const name=GENE_CONFIG[locus].name; if(perc===100) hets.push(`Het ${name}`); else if(perc>0) hets.push(`${perc}% Poss Het ${name}`); }} let name = group.visualNameBase; if(hets.length>0){ name = (name==='ノーマル' ? 'ノーマル '+hets.join(' ') : name+' '+hets.join(' ')); } final.push({ morphName:name, percentage:parseFloat((group.totalProbability*100).toFixed(2)) }); }
     return final.sort((a,b)=>b.percentage-a.percentage);
 }
 const p1=getParentDataFromObject({PurpleHaze:'homo'},{comboMode:'carrier'});

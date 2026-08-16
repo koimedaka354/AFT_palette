@@ -381,9 +381,8 @@ function createSelectors() {
 // ==========================================
 // 【計算コアロジック】
 // ==========================================
-function getParentDataFromObject(paramObj, options = {}) {
+function getParentDataFromObject(paramObj) {
     const states = { Normal: "none", Whiteout: "none", Zulu: "none", Oreo: "none", Caramel: "none", Patternless: "none", Ghost: "none", Amelanistic: "none" };
-    const comboMode = options.comboMode || "strict";
     function maxState(s1, s2) {
         if (s1 === "homo" || s2 === "homo") return "homo";
         if (s1 === "het" || s2 === "het") return "het";
@@ -416,13 +415,13 @@ function getParentDataFromObject(paramObj, options = {}) {
     return data;
 }
 
-function getParentData(prefix, options = {}) {
+function getParentData(prefix) {
     const paramObj = {};
     for (const key in UI_CONFIG) {
         const el = document.getElementById(`${prefix}_${key}`);
         paramObj[key] = el ? el.value : "none";
     }
-    return getParentDataFromObject(paramObj, options);
+    return getParentDataFromObject(paramObj);
 }
 
 function checkBreedingAlerts() {
@@ -568,7 +567,6 @@ function calculateOffspring(p1, p2) {
       finalMorphName = (finalMorphName === "ノーマル") ? "ノーマル " + hetStrings.join(" ") : finalMorphName + " " + hetStrings.join(" ");
     }
     finalMorphName = finalMorphName.replace(/アメラニスティック（アメル）/g, "アメル");
-    finalMorphName = finalMorphName.replace(/Het アメル/g, "Het アメル");
     finalResults.push({ morphName: finalMorphName, percentage: parseFloat((group.totalProbability * 100).toFixed(2)) });
   }
   return finalResults.sort((a, b) => b.percentage - a.percentage);
@@ -594,8 +592,8 @@ function runCalculation() {
     checkBreedingAlerts();
     if (isAllUnselected) { container.innerHTML = ''; return; }
 
-    const p1 = getParentData('p1', { comboMode: 'strict' });
-    const p2 = getParentData('p2', { comboMode: 'strict' });
+    const p1 = getParentData('p1');
+    const p2 = getParentData('p2');
     const results = calculateOffspring(p1, p2);
     
     container.innerHTML = '';
@@ -723,8 +721,8 @@ function selectReverseTarget(targetMorph) {
                     continue;
                 }
 
-                const p1Data = getParentDataFromObject(p1, { comboMode: 'carrier' });
-                const p2Data = getParentDataFromObject(p2, { comboMode: 'carrier' });
+                const p1Data = getParentDataFromObject(p1);
+                const p2Data = getParentDataFromObject(p2);
                 const offspring = calculateOffspring(p1Data, p2Data);
                 const found = offspring.find(child => child.morphName === targetMorph || child.morphName.startsWith(targetMorph + " "));
                 
