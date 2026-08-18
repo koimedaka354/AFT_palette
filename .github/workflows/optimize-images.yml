@@ -1,0 +1,46 @@
+name: Optimize PNG images
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'img/**.png'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: optimize-images
+  cancel-in-progress: false
+
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '[skip-optimize]')"
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install pngquant
+        run: sudo apt-get update && sudo apt-get install -y pngquant
+
+      - name: Compress PNGs in img/
+        run: |
+          shopt -s nullglob
+          for f in img/*.png; do
+            if pngquant --quality=75-95 --speed 1 --strip --force --output "$f.tmp" "$f"; then
+              mv "$f.tmp" "$f"
+              echo "optimized: $f"
+            else
+              rm -f "$f.tmp"
+              echo "skipped (could not hit quality floor): $f"
+            fi
+          done
+
+      - name: Commit optimized images
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: auto-optimize PNG images in img/ [skip-optimize]"
+          file_pattern: 'img/*.png'
+          commit_user_name: "github-actions[bot]"
+          commit_user_email: "github-actions[bot]@users.noreply.github.com"
