@@ -1,4 +1,5 @@
-﻿const GENE_CONFIG = {
+﻿// Node-only debug script for morph inheritance logic. Not loaded by index.html — run with: node scripts/debug_purple.js
+const GENE_CONFIG = {
   Normal: { type: 'recessive', normal: 'N', mutant: 'X', name: 'ノーマル' },
   Whiteout: { type: 'co-dominant', normal: 'N', mutant: 'W', name: 'ホワイトアウト', visual_het: 'ホワイトアウト' },
   Oreo: { type: 'recessive', normal: 'N', mutant: 'o', name: 'オレオ' },

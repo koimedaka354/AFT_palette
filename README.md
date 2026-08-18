@@ -1,55 +1,42 @@
-# ニシアフ・パレット — GA4 計測の検証とデプロイ手順
+# ニシアフ・パレット
 
-以下は `index.html` に埋めた GA4（G-Y2HG56PQSM）スニペットの動作確認と代表的なデプロイ手順です。
+ニシアフリカトカゲモドキ（African Fat-tailed Gecko）のモルフ(品種)交配結果を予測する、ブラウザで動く遺伝計算ツールです。
 
-## 1) ローカルでの動作確認（まずここを行ってください）
+- 両親のモルフを選択すると、生まれてくる子の見た目・確率を計算します(通常モード)。
+- 欲しいモルフから逆算して、必要な親の組み合わせを探すこともできます(逆引きモード)。
+- 結果はあくまで統計的な予測であり、実際の交配結果を保証するものではありません。
 
-- 起動（Python を使う簡易サーバー）:
+公開URL: https://koimedaka354.github.io/AFT_palette/
+
+## 技術構成
+
+ビルド不要のプレーンHTML/CSS/JSのみで構成されています。フレームワーク・パッケージ管理(package.json等)は使用していません。
+
+- `index.html` — ページ本体。UI・遺伝計算ロジックともにこのファイルにインラインで実装
+- `img/` — モルフごとのサムネイル画像
+- `scripts/debug_purple.js` — ページには読み込まれないNode実行用のデバッグスクリプト(交配ロジックの動作確認用)
+- `.github/workflows/` — 画像自動圧縮などのGitHub Actionsワークフロー
+
+## ローカルでの実行
 
 ```bash
-cd "c:\Users\notep\Desktop\ニシアフアプリ"
 python -m http.server 8000
 ```
 
-- または Node がある場合:
+またはNodeがある場合:
 
 ```bash
 npx http-server -p 8000
 ```
 
-- ブラウザで `http://localhost:8000/` を開く。
-- DevTools の Network タブで `collect?v=2` や `gtag/js` に向けたリクエスト（`https://www.googletagmanager.com/gtag/js` や `https://www.google-analytics.com/g/collect`）が発生しているか確認する。
-- GA4 の管理画面 → 「Realtime（リアルタイム）」で自分のアクセスが表示されるか確認する。
+ブラウザで `http://localhost:8000/` を開いて確認してください。
 
-ヒント: リアルタイムに出ない場合は、ブラウザにインストールした「Google Analytics Debugger」拡張や、DebugView を使うと詳細が見えます。DebugView を有効にするにはブラウザで `localStorage.setItem('ga_debug', 'true')` などの方法や、GA デバッガ拡張を利用してください。
+## デプロイ
 
-## 2) 本番デプロイ（代表的な選択肢）
+`main` ブランチにcommit・pushするだけです。GitHub Pagesが `main` のルートから直接配信するため、ビルドや別ブランチへの反映作業は不要です。
 
-- Netlify (最も簡単：ドラッグ&ドロップ or Git 接続)
-  - site を作成 → `dist`/`root` にこのフォルダを指定してデプロイ。
+`img/` 配下にPNG画像をpushすると、GitHub Actions(`optimize-images.yml`)が自動でpngquantによる圧縮を行い、圧縮後の画像を自動コミットします。
 
-- GitHub Pages
-  - リポジトリを作成して push → `gh-pages` ブランチまたは `main` の `docs/` を有効化。
+## その他
 
-- Vercel
-  - Git を接続して自動デプロイ。
-
-どのホスティングでも、公開 URL にアクセスして DevTools の Network と GA4 の Realtime を確認してください。
-
-## 3) デバッグの追加手段
-
-- ブラウザでの確認:
-  - Network で `g/collect`（Measurement Protocol の v2）リクエストを確認。
-  - コンソールに `gtag` のログを出すには一時的に `gtag('set', {'debug_mode': true});` を追加できます（本番では不要）。
-
-- GA 側:
-  - GA4 の「DebugView」を有効にして動作を追跡。
-
-## 4) 次にやること（提案）
-
-- 私が代行できること:
-  - ローカルで検証を代行するために、あなたの環境で実行するコマンドを案内します。
-  - どのホスティングを使うか教えていただければ、デプロイ手順を詳しく作成します。
-
----
-短く検証したい場合は、どの方法でデプロイしたいか教えてください（Netlify / GitHub Pages / Vercel / 他）。
+過去のGA4(アクセス解析)セットアップの経緯や検証手順など、詳細な設定履歴は `REPORT.md` を参照してください。
