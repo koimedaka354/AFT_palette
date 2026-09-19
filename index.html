@@ -46,7 +46,17 @@
 
             <div class="hero-carousel" id="heroCarousel" role="region" aria-label="注目コンテンツ">
                 <div class="carousel-viewport">
+                    <button type="button" class="carousel-arrow carousel-arrow-prev" id="carouselPrev" aria-label="前のスライド">&#10094;</button>
+                    <button type="button" class="carousel-arrow carousel-arrow-next" id="carouselNext" aria-label="次のスライド">&#10095;</button>
                     <div class="carousel-track" id="carouselTrack">
+                        <a class="carousel-slide slide-contain" href="nishiafu/palette.html">
+                            <div class="carousel-img-wrap"><img src="img/palette-hero.png" alt="ニシアフ・パレット" loading="lazy"></div>
+                            <div class="carousel-caption">
+                                <span class="tag">無料ツール</span>
+                                <h3>🧬 モルフ計算ツール「ニシアフ・パレット」</h3>
+                                <p>親のモルフを選ぶだけで生まれる子の見た目と確率を予測</p>
+                            </div>
+                        </a>
                         <a class="carousel-slide" href="nishiafu/">
                             <div class="carousel-img-wrap"><img src="img/card-nishiafu.png" alt="ニシアフリカトカゲモドキ" loading="lazy"></div>
                             <div class="carousel-caption">
@@ -61,14 +71,6 @@
                                 <span class="tag">観賞魚</span>
                                 <h3>🐟 めだかの飼い方</h3>
                                 <p>容器選びから季節の注意点、繁殖まで基本をまとめました</p>
-                            </div>
-                        </a>
-                        <a class="carousel-slide" href="nishiafu/palette.html">
-                            <div class="carousel-img-wrap"><img src="img/palette-hero.png" alt="ニシアフ・パレット" loading="lazy"></div>
-                            <div class="carousel-caption">
-                                <span class="tag">無料ツール</span>
-                                <h3>🧬 モルフ計算ツール「ニシアフ・パレット」</h3>
-                                <p>親のモルフを選ぶだけで生まれる子の見た目と確率を予測</p>
                             </div>
                         </a>
                         <a class="carousel-slide slide-contain" href="stickers/">
@@ -99,6 +101,16 @@
                         <h3>🦎 ニシアフリカトカゲモドキ</h3>
                         <p>飼育に必要な道具、日々のお世話のポイント、モルフ(品種)交配予測ツール「ニシアフ・パレット」をまとめて紹介しています。</p>
                         <span class="cta">見てみる →</span>
+                    </div>
+                </a>
+
+                <a class="genre-card" href="nishiafu/palette.html">
+                    <div class="thumb"><img src="img/palette-hero.png" alt="ニシアフ・パレット" loading="lazy"></div>
+                    <div class="body">
+                        <span class="tag">無料ツール</span>
+                        <h3>🧬 モルフ計算ツール「ニシアフ・パレット」</h3>
+                        <p>親のモルフを選ぶだけで、生まれてくる子の見た目と確率を予測。欲しいモルフから親の組み合わせを逆算検索することもできます。</p>
+                        <span class="cta">使ってみる →</span>
                     </div>
                 </a>
 
@@ -138,6 +150,8 @@
     (function () {
         var track = document.getElementById('carouselTrack');
         var dotsWrap = document.getElementById('carouselDots');
+        var prevBtn = document.getElementById('carouselPrev');
+        var nextBtn = document.getElementById('carouselNext');
         if (!track || !dotsWrap) return;
         var slides = track.children;
         var total = slides.length;
@@ -147,6 +161,7 @@
 
         for (var i = 0; i < total; i++) {
             var dot = document.createElement('button');
+            dot.type = 'button';
             dot.className = 'dot' + (i === 0 ? ' active' : '');
             dot.setAttribute('aria-label', (i + 1) + '枚目を表示');
             dot.addEventListener('click', (function (i) {
@@ -164,6 +179,7 @@
             }
         }
         function next() { goTo(index + 1); }
+        function prev() { goTo(index - 1); }
         function start() {
             var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
             if (reduceMotion) return;
@@ -171,6 +187,45 @@
         }
         function stop() { if (timer) { clearInterval(timer); timer = null; } }
         function restart() { stop(); start(); }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                next();
+                restart();
+            });
+        }
+        if (prevBtn) {
+            prevBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                prev();
+                restart();
+            });
+        }
+
+        // スマホのスワイプ操作
+        var touchStartX = 0;
+        var touchDeltaX = 0;
+        var dragging = false;
+        track.addEventListener('touchstart', function (e) {
+            touchStartX = e.touches[0].clientX;
+            touchDeltaX = 0;
+            dragging = true;
+            stop();
+        }, { passive: true });
+        track.addEventListener('touchmove', function (e) {
+            if (!dragging) return;
+            touchDeltaX = e.touches[0].clientX - touchStartX;
+        }, { passive: true });
+        track.addEventListener('touchend', function () {
+            if (!dragging) return;
+            dragging = false;
+            if (Math.abs(touchDeltaX) > 40) {
+                if (touchDeltaX < 0) next(); else prev();
+            }
+            touchDeltaX = 0;
+            restart();
+        });
 
         track.addEventListener('mouseenter', stop);
         track.addEventListener('mouseleave', start);
