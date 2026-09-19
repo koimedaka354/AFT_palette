@@ -43,6 +43,46 @@
             <span class="eyebrow">PET & CREATURE GUIDE</span>
             <h1>小さな生きものたちの、<br>暮らしと選び方。</h1>
             <p class="lead">爬虫類から観賞魚まで、実際にお世話をしている飼い主目線で、飼育方法や使っている道具、便利な計算ツールをジャンルごとにまとめています。</p>
+
+            <div class="hero-carousel" id="heroCarousel" role="region" aria-label="注目コンテンツ">
+                <div class="carousel-viewport">
+                    <div class="carousel-track" id="carouselTrack">
+                        <a class="carousel-slide" href="nishiafu/">
+                            <div class="carousel-img-wrap"><img src="img/card-nishiafu.png" alt="ニシアフリカトカゲモドキ" loading="lazy"></div>
+                            <div class="carousel-caption">
+                                <span class="tag">爬虫類</span>
+                                <h3>🦎 ニシアフリカトカゲモドキの飼い方</h3>
+                                <p>道具選びと日々のお世話のポイントをまとめて紹介</p>
+                            </div>
+                        </a>
+                        <a class="carousel-slide" href="medaka/">
+                            <div class="carousel-img-wrap"><img src="img/card-medaka.png" alt="めだか" loading="lazy"></div>
+                            <div class="carousel-caption">
+                                <span class="tag">観賞魚</span>
+                                <h3>🐟 めだかの飼い方</h3>
+                                <p>容器選びから季節の注意点、繁殖まで基本をまとめました</p>
+                            </div>
+                        </a>
+                        <a class="carousel-slide" href="nishiafu/palette.html">
+                            <div class="carousel-img-wrap"><img src="img/palette-hero.png" alt="ニシアフ・パレット" loading="lazy"></div>
+                            <div class="carousel-caption">
+                                <span class="tag">無料ツール</span>
+                                <h3>🧬 モルフ計算ツール「ニシアフ・パレット」</h3>
+                                <p>親のモルフを選ぶだけで生まれる子の見た目と確率を予測</p>
+                            </div>
+                        </a>
+                        <a class="carousel-slide slide-contain" href="stickers/">
+                            <div class="carousel-img-wrap"><img src="img/stickers/1/main-240x240.png" alt="めだかちゃんLINEスタンプ" loading="lazy"></div>
+                            <div class="carousel-caption">
+                                <span class="tag">LINEスタンプ</span>
+                                <h3>💬 めだかちゃんLINEスタンプ</h3>
+                                <p>LINE Creators Marketで販売中</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="carousel-dots" id="carouselDots"></div>
+            </div>
         </div>
     </div>
 
@@ -93,6 +133,51 @@
             <p>本サイトの一部リンクにはアフィリエイト広告を含みます。</p>
         </div>
     </footer>
+
+    <script>
+    (function () {
+        var track = document.getElementById('carouselTrack');
+        var dotsWrap = document.getElementById('carouselDots');
+        if (!track || !dotsWrap) return;
+        var slides = track.children;
+        var total = slides.length;
+        var index = 0;
+        var intervalMs = 5000;
+        var timer = null;
+
+        for (var i = 0; i < total; i++) {
+            var dot = document.createElement('button');
+            dot.className = 'dot' + (i === 0 ? ' active' : '');
+            dot.setAttribute('aria-label', (i + 1) + '枚目を表示');
+            dot.addEventListener('click', (function (i) {
+                return function () { goTo(i); restart(); };
+            })(i));
+            dotsWrap.appendChild(dot);
+        }
+        var dots = dotsWrap.querySelectorAll('.dot');
+
+        function goTo(i) {
+            index = (i + total) % total;
+            track.style.transform = 'translateX(-' + (index * 100) + '%)';
+            for (var j = 0; j < dots.length; j++) {
+                dots[j].classList.toggle('active', j === index);
+            }
+        }
+        function next() { goTo(index + 1); }
+        function start() {
+            var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (reduceMotion) return;
+            timer = setInterval(next, intervalMs);
+        }
+        function stop() { if (timer) { clearInterval(timer); timer = null; } }
+        function restart() { stop(); start(); }
+
+        track.addEventListener('mouseenter', stop);
+        track.addEventListener('mouseleave', start);
+        goTo(0);
+        start();
+    })();
+    </script>
 
 </body>
 </html>
