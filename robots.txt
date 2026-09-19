@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://koimedaka354.github.io/AFT_palette/sitemap.xml
