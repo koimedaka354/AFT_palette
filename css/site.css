@@ -164,7 +164,7 @@ section.block { padding: 36px 0; }
     position: relative;
 }
 .carousel-slide .carousel-img-wrap {
-    aspect-ratio: 21 / 9;
+    aspect-ratio: 3 / 2;
     background: var(--color-badge-bg);
     overflow: hidden;
 }
