@@ -450,6 +450,11 @@ a.topics-item:hover { background: var(--color-surface); }
     white-space: nowrap;
 }
 .sticker-set-head .status.pending { color: var(--color-coral-dark); background: var(--color-badge-bg); }
+.sticker-set-tagline {
+    font-size: 13px;
+    color: var(--color-muted);
+    margin: -10px 0 16px;
+}
 .sticker-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
