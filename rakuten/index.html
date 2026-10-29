@@ -4,13 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>めだかちゃんの楽天メモ｜いきもの日和</title>
-    <meta name="description" content="楽天お買い物マラソン・5と0のつく日・ふるさと納税など、その日の楽天のイベントとエントリーページをまとめたメモ。毎日更新。">
+    <meta name="description" content="楽天お買い物マラソン・スーパーSALE・5と0のつく日・ふるさと納税の予定をカレンダーで。その日のイベントとエントリーページをまとめたメモ。毎日更新。">
     <meta name="robots" content="noindex">
     <link rel="canonical" href="https://koimedaka354.github.io/AFT_palette/rakuten/">
+    <meta property="og:title" content="めだかちゃんの楽天メモ">
+    <meta property="og:description" content="楽天のマラソン・SALE・5と0のつく日がカレンダーでわかるメモ。毎日更新。">
+    <meta property="og:image" content="https://koimedaka354.github.io/AFT_palette/img/rakuten-banner.jpg">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/site.css">
+    <style>
+        .memo-hero-img { max-width: 720px; margin: 26px auto 0; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-soft); border: 1px solid var(--color-border); }
+        .memo-hero-img img { width: 100%; height: auto; }
+        .today-card { display: flex; gap: 20px; align-items: center; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); box-shadow: var(--shadow-soft); padding: 22px 24px; }
+        .today-card img { width: 120px; flex: 0 0 120px; }
+        .today-card h3 { margin: 0 0 6px; font-size: 18px; color: var(--color-heading); }
+        .today-card p { margin: 0 0 14px; font-size: 14px; color: var(--color-muted); }
+        .today-card p:last-child { margin-bottom: 0; }
+        .cal-wrap { display: grid; gap: 22px; grid-template-columns: 1fr; }
+        @media (min-width: 860px) { .cal-wrap { grid-template-columns: 1fr 1fr; } }
+        .cal-month { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); box-shadow: var(--shadow-soft); padding: 16px 14px 18px; }
+        .cal-month h3 { margin: 0 0 10px; text-align: center; font-size: 17px; color: var(--color-heading); }
+        .cal-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px; }
+        .cal-w { text-align: center; font-size: 11.5px; font-weight: 700; color: var(--color-muted); padding-bottom: 2px; }
+        .cal-w.sun, .cal-d.sun .num { color: #d9674a; }
+        .cal-w.sat, .cal-d.sat .num { color: #4f86b8; }
+        .cal-d { min-height: 54px; border-radius: 10px; background: #fbf6ee; padding: 4px 3px; display: flex; flex-direction: column; align-items: center; gap: 2px; }
+        .cal-d.blank { background: transparent; }
+        .cal-d .num { font-size: 13px; font-weight: 700; color: var(--color-text); }
+        .cal-d.past { opacity: 0.38; }
+        .cal-d.today { outline: 3px solid var(--color-coral-dark); outline-offset: -3px; background: #fff; }
+        .cal-d.ev-marathon { background: #ffe2d4; }
+        .cal-d.ev-supersale { background: #ffd3d3; }
+        .cal-d.planned { background-image: repeating-linear-gradient(135deg, rgba(255,255,255,.75) 0 4px, transparent 4px 8px); }
+        .chip { font-style: normal; font-size: 9.5px; line-height: 1.3; font-weight: 700; color: #fff; border-radius: 6px; padding: 1px 4px; white-space: nowrap; max-width: 100%; overflow: hidden; }
+        .chip-marathon { background: var(--color-coral-dark); }
+        .chip-supersale { background: #d9474a; }
+        .chip-pointday { background: var(--color-mint-dark); }
+        .chip-furusato { background: #8a6ab8; }
+        .cal-legend { display: flex; flex-wrap: wrap; gap: 8px 16px; margin: 14px 0 0; font-size: 12.5px; color: var(--color-muted); }
+        .cal-legend .chip { font-size: 11px; margin-right: 4px; }
+        .sched { list-style: none; padding: 0; margin: 20px 0 0; display: grid; gap: 10px; }
+        .sched li { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 12px 16px; font-size: 14px; }
+        .sched .when { display: block; font-size: 12.5px; color: var(--color-muted); }
+        .sched .tag-planned { font-size: 11px; font-weight: 700; color: var(--color-coral-dark); background: var(--color-badge-bg); border-radius: 999px; padding: 2px 8px; margin-left: 6px; }
+        .door-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+        .door { display: flex; flex-direction: column; align-items: center; text-align: center; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); box-shadow: var(--shadow-soft); padding: 18px 18px 22px; }
+        .door img { width: 104px; margin-bottom: 8px; }
+        .door h3 { margin: 0 0 6px; font-size: 16px; color: var(--color-heading); }
+        .door p { margin: 0 0 14px; font-size: 13px; color: var(--color-muted); flex: 1; }
+        .door .btn { padding: 10px 20px; font-size: 13px; }
+        @media (max-width: 640px) {
+            .today-card { flex-direction: column; text-align: center; }
+            .cal-d { min-height: 48px; }
+            .chip { font-size: 8.5px; padding: 1px 2px; }
+        }
+    </style>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y2HG56PQSM"></script>
     <script>
@@ -41,28 +92,50 @@
         <div class="wrap">
             <span class="eyebrow">RAKUTEN MEMO</span>
             <h1>🛒 めだかちゃんの楽天メモ</h1>
-            <p class="lead">楽天でお買い物をする前に見るメモです。その日のイベントと、エントリーが必要なページをまとめています。2026年10月29日(木)更新。</p>
+            <p class="lead">楽天でお買い物をする前に見るメモです。その日のイベントと、エントリーが必要なページ、これからの予定をまとめています。2026年10月29日(木)更新。</p>
+            <div class="memo-hero-img"><img src="../img/rakuten-banner.jpg" alt="めだかちゃんの楽天メモ。マラソン・スーパーSALE・5と0のつく日がカレンダーでわかる" width="1500" height="1000"></div>
         </div>
     </div>
 
     <section class="block">
         <div class="wrap">
             <h2 class="section-title">今日の楽天</h2>
-            <div class="sticker-set">
-                <div class="sticker-set-head"><h3>今日は大きなイベントはありません</h3></div>
-                <p class="sticker-set-tagline">急ぎでない買い物は、下の予定の日にまとめると、ポイントの倍率が上がりやすくなります。</p>
+            <div class="today-card">
+                <img src="../img/stickers/5/02-nonbiri-sticker.png" alt="めだかちゃん" loading="lazy">
+                <div>
+                    <h3>今日は大きなイベントはありません</h3>
+                    <p>急ぎでない買い物は、下のカレンダーの色がついた日にまとめると、ポイントの倍率が上がりやすくなります。</p>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="block">
         <div class="wrap">
-            <h2 class="section-title">これからの予定</h2>
+            <h2 class="section-title">楽天カレンダー</h2>
             <p class="section-sub">ポイントアップの多くはエントリーが必要です。エントリーは期間が始まる前でもできます。</p>
-            <ul style="line-height:1.9; padding-left:1.2em;">
-                <li><strong>10月30日(金)</strong>：5と0のつく日（楽天カードのポイントアップ。エントリーが必要）</li>
-                <li><strong>11月5日(木)</strong>：5と0のつく日（楽天カードのポイントアップ。エントリーが必要）</li>
-                <li><strong>12月31日</strong>：ふるさと納税、2026年分の締め切り（今年の控除に入れるには年内に寄付を済ませる）</li>
+            <div class="cal-wrap">
+                <div class="cal-month">
+                    <h3>2026年10月</h3>
+                    <div class="cal-grid"><div class="cal-w sun">日</div><div class="cal-w">月</div><div class="cal-w">火</div><div class="cal-w">水</div><div class="cal-w">木</div><div class="cal-w">金</div><div class="cal-w sat">土</div><div class="cal-d blank"></div><div class="cal-d blank"></div><div class="cal-d blank"></div><div class="cal-d blank"></div><div class="cal-d past"><span class="num">1</span></div><div class="cal-d past"><span class="num">2</span></div><div class="cal-d past sat"><span class="num">3</span></div><div class="cal-d past sun"><span class="num">4</span></div><div class="cal-d past"><span class="num">5</span></div><div class="cal-d past"><span class="num">6</span></div><div class="cal-d past"><span class="num">7</span></div><div class="cal-d past"><span class="num">8</span></div><div class="cal-d past"><span class="num">9</span></div><div class="cal-d past sat"><span class="num">10</span></div><div class="cal-d past sun"><span class="num">11</span></div><div class="cal-d past"><span class="num">12</span></div><div class="cal-d past"><span class="num">13</span></div><div class="cal-d past"><span class="num">14</span></div><div class="cal-d past"><span class="num">15</span></div><div class="cal-d past"><span class="num">16</span></div><div class="cal-d past sat"><span class="num">17</span></div><div class="cal-d past sun"><span class="num">18</span></div><div class="cal-d past"><span class="num">19</span></div><div class="cal-d past"><span class="num">20</span></div><div class="cal-d past"><span class="num">21</span></div><div class="cal-d past"><span class="num">22</span></div><div class="cal-d past"><span class="num">23</span></div><div class="cal-d past sat"><span class="num">24</span></div><div class="cal-d past sun"><span class="num">25</span></div><div class="cal-d past"><span class="num">26</span></div><div class="cal-d past"><span class="num">27</span></div><div class="cal-d past"><span class="num">28</span></div><div class="cal-d today"><span class="num">29</span></div><div class="cal-d" title="5と0のつく日"><span class="num">30</span><i class="chip chip-pointday">5と0</i></div><div class="cal-d sat"><span class="num">31</span></div></div>
+                </div>
+                <div class="cal-month">
+                    <h3>2026年11月</h3>
+                    <div class="cal-grid"><div class="cal-w sun">日</div><div class="cal-w">月</div><div class="cal-w">火</div><div class="cal-w">水</div><div class="cal-w">木</div><div class="cal-w">金</div><div class="cal-w sat">土</div><div class="cal-d sun"><span class="num">1</span></div><div class="cal-d"><span class="num">2</span></div><div class="cal-d"><span class="num">3</span></div><div class="cal-d ev-marathon planned" title="楽天お買い物マラソン（予定）"><span class="num">4</span><i class="chip chip-marathon">マラソン</i></div><div class="cal-d ev-marathon planned" title="楽天お買い物マラソン（予定）・5と0のつく日"><span class="num">5</span><i class="chip chip-marathon">マラソン</i><i class="chip chip-pointday">5と0</i></div><div class="cal-d ev-marathon planned" title="楽天お買い物マラソン（予定）"><span class="num">6</span><i class="chip chip-marathon">マラソン</i></div><div class="cal-d sat ev-marathon planned" title="楽天お買い物マラソン（予定）"><span class="num">7</span><i class="chip chip-marathon">マラソン</i></div><div class="cal-d sun ev-marathon planned" title="楽天お買い物マラソン（予定）"><span class="num">8</span><i class="chip chip-marathon">マラソン</i></div><div class="cal-d ev-marathon planned" title="楽天お買い物マラソン（予定）"><span class="num">9</span><i class="chip chip-marathon">マラソン</i></div><div class="cal-d ev-marathon planned" title="楽天お買い物マラソン（予定）・5と0のつく日"><span class="num">10</span><i class="chip chip-marathon">マラソン</i><i class="chip chip-pointday">5と0</i></div><div class="cal-d"><span class="num">11</span></div><div class="cal-d"><span class="num">12</span></div><div class="cal-d"><span class="num">13</span></div><div class="cal-d sat"><span class="num">14</span></div><div class="cal-d sun" title="5と0のつく日"><span class="num">15</span><i class="chip chip-pointday">5と0</i></div><div class="cal-d"><span class="num">16</span></div><div class="cal-d"><span class="num">17</span></div><div class="cal-d"><span class="num">18</span></div><div class="cal-d"><span class="num">19</span></div><div class="cal-d" title="5と0のつく日"><span class="num">20</span><i class="chip chip-pointday">5と0</i></div><div class="cal-d sat"><span class="num">21</span></div><div class="cal-d sun"><span class="num">22</span></div><div class="cal-d"><span class="num">23</span></div><div class="cal-d"><span class="num">24</span></div><div class="cal-d" title="5と0のつく日"><span class="num">25</span><i class="chip chip-pointday">5と0</i></div><div class="cal-d"><span class="num">26</span></div><div class="cal-d"><span class="num">27</span></div><div class="cal-d sat"><span class="num">28</span></div><div class="cal-d sun"><span class="num">29</span></div><div class="cal-d" title="5と0のつく日"><span class="num">30</span><i class="chip chip-pointday">5と0</i></div></div>
+                </div>
+            </div>
+            <div class="cal-legend">
+                <span><i class="chip chip-marathon">マラソン</i>お買い物マラソン</span>
+                <span><i class="chip chip-supersale">SALE</i>スーパーSALE</span>
+                <span><i class="chip chip-pointday">5と0</i>5と0のつく日</span>
+                <span><i class="chip chip-furusato">納税締切</i>ふるさと納税の締め切り</span>
+                <span>しま模様＝公式発表前の予定</span>
+            </div>
+            <ul class="sched">
+                <li><strong>楽天お買い物マラソン</strong><span class="tag-planned">予定</span><span class="when">公式ページの発表前です。日時は公式ページで確認してください</span><span class="when">11月4日(水)20:00〜11月11日(水)01:59</span></li>
+                <li><strong>5と0のつく日</strong><span class="when">10月30日(金)　楽天カードのポイントアップ。エントリーが必要です</span></li>
+                <li><strong>5と0のつく日</strong><span class="when">11月5日(木)　楽天カードのポイントアップ。エントリーが必要です</span></li>
+                <li><strong>ふるさと納税、2026年分の締め切り</strong><span class="when">12月31日　今年の控除に入れるには年内に寄付を済ませます</span></li>
             </ul>
         </div>
     </section>
@@ -70,11 +143,26 @@
     <section class="block">
         <div class="wrap">
             <h2 class="section-title">いつでも使える入口</h2>
-            <ul style="line-height:1.9; padding-left:1.2em;">
-                <li><a target="_blank" rel="noopener sponsored" href="https://hb.afl.rakuten.co.jp/hgc/569b718c.59700c3f.569b718d.cd8ef689/?pc=https%3A%2F%2Fevent.rakuten.co.jp%2Ffurusato%2F">楽天ふるさと納税</a></li>
-                <li><a target="_blank" rel="noopener sponsored" href="https://hb.afl.rakuten.co.jp/hgc/569b718c.59700c3f.569b718d.cd8ef689/?pc=https%3A%2F%2Fevent.rakuten.co.jp%2Ffurusato%2Fcoupon%2Ftravel%2F">ふるさと納税の楽天トラベルクーポン（寄付先の町の宿で使える。使える期間は3年）</a></li>
-                <li><a target="_blank" rel="noopener sponsored" href="https://hb.afl.rakuten.co.jp/hgc/569b718c.59700c3f.569b718d.cd8ef689/?pc=https%3A%2F%2Fevent.rakuten.co.jp%2Fcard%2Fpointday%2F">5と0のつく日（楽天カード）</a></li>
-            </ul>
+            <div class="door-grid">
+                <div class="door">
+                    <img src="../img/stickers/7/08-shiawase-sticker.png" alt="">
+                    <h3>楽天ふるさと納税</h3>
+                    <p>2026年分は12月31日まで。食べもの・日用品の返礼品を探せます</p>
+                    <a class="btn btn-coral" target="_blank" rel="noopener sponsored" href="https://hb.afl.rakuten.co.jp/hgc/569b718c.59700c3f.569b718d.cd8ef689/?pc=https%3A%2F%2Fevent.rakuten.co.jp%2Ffurusato%2F">ふるさと納税のページへ →</a>
+                </div>
+                <div class="door">
+                    <img src="../img/stickers/6/06-yahho-sticker.png" alt="">
+                    <h3>ふるさと納税の楽天トラベルクーポン</h3>
+                    <p>寄付先の町の宿で使えるクーポン。使える期間は3年です</p>
+                    <a class="btn btn-coral" target="_blank" rel="noopener sponsored" href="https://hb.afl.rakuten.co.jp/hgc/569b718c.59700c3f.569b718d.cd8ef689/?pc=https%3A%2F%2Fevent.rakuten.co.jp%2Ffurusato%2Fcoupon%2Ftravel%2F">トラベルクーポンのページへ →</a>
+                </div>
+                <div class="door">
+                    <img src="../img/stickers/2/04-ouen-sticker.png" alt="">
+                    <h3>5と0のつく日</h3>
+                    <p>毎月5・10・15・20・25・30日。楽天カードのポイントアップはエントリーが必要です</p>
+                    <a class="btn btn-mint" target="_blank" rel="noopener sponsored" href="https://hb.afl.rakuten.co.jp/hgc/569b718c.59700c3f.569b718d.cd8ef689/?pc=https%3A%2F%2Fevent.rakuten.co.jp%2Fcard%2Fpointday%2F">エントリーページへ →</a>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -82,12 +170,27 @@
         <div class="wrap">
             <h2 class="section-title">楽天ROOMのコレクション</h2>
             <p class="section-sub">めだかちゃんが楽天ROOMで集めている商品です</p>
-            <ul style="line-height:1.7; padding-left:1.2em;">
-                <li><a target="_blank" rel="noopener" href="https://room.rakuten.co.jp/room_2e33071ec6/collection/1800012802198225">旅行</a><br><span style="font-size:13px; color:var(--color-muted);">泊まりに行けるふるさと納税。楽天トラベルクーポンと宿泊券</span></li>
-                <li><a target="_blank" rel="noopener" href="https://room.rakuten.co.jp/room_2e33071ec6/collection/1800012748222212">ふるさと納税の返礼品</a><br><span style="font-size:13px; color:var(--color-muted);">食べもの・日用品のふるさと納税の返礼品</span></li>
-                <li><a target="_blank" rel="noopener" href="https://room.rakuten.co.jp/room_2e33071ec6/collection/1800012744834499">楽天マラソン買い回り商品（1000円）</a><br><span style="font-size:13px; color:var(--color-muted);">お買い物マラソンの買い回りに足しやすい1,000円前後の商品</span></li>
-                <li><a target="_blank" rel="noopener" href="https://room.rakuten.co.jp/room_2e33071ec6">楽天ROOM「めだかちゃん。いいものroom」のトップ</a></li>
-            </ul>
+            <div class="door-grid">
+                <div class="door">
+                    <img src="../img/stickers/3/08-tanoshimi-sticker.png" alt="">
+                    <h3>旅行</h3>
+                    <p>泊まりに行けるふるさと納税。楽天トラベルクーポンと宿泊券</p>
+                    <a class="btn btn-outline" target="_blank" rel="noopener" href="https://room.rakuten.co.jp/room_2e33071ec6/collection/1800012802198225">コレクションを見る →</a>
+                </div>
+                <div class="door">
+                    <img src="../img/stickers/3/08-tanoshimi-sticker.png" alt="">
+                    <h3>ふるさと納税の返礼品</h3>
+                    <p>食べもの・日用品のふるさと納税の返礼品</p>
+                    <a class="btn btn-outline" target="_blank" rel="noopener" href="https://room.rakuten.co.jp/room_2e33071ec6/collection/1800012748222212">コレクションを見る →</a>
+                </div>
+                <div class="door">
+                    <img src="../img/stickers/3/08-tanoshimi-sticker.png" alt="">
+                    <h3>楽天マラソン買い回り商品（1000円）</h3>
+                    <p>お買い物マラソンの買い回りに足しやすい1,000円前後の商品</p>
+                    <a class="btn btn-outline" target="_blank" rel="noopener" href="https://room.rakuten.co.jp/room_2e33071ec6/collection/1800012744834499">コレクションを見る →</a>
+                </div>
+            </div>
+            <p style="text-align:center; margin-top:22px;"><a class="btn btn-outline" target="_blank" rel="noopener" href="https://room.rakuten.co.jp/room_2e33071ec6">楽天ROOM「めだかちゃん。いいものroom」のトップへ</a></p>
         </div>
     </section>
 

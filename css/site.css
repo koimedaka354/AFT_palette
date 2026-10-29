@@ -489,3 +489,40 @@ a.topics-item:hover { background: var(--color-surface); }
     .btn { width: 100%; }
     .note-cta { padding: 24px 18px; }
 }
+
+/* ---------- トップの「めだかちゃんの楽天メモ」入口（2026-10-29） ---------- */
+.rakuten-memo-band {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 14px 20px;
+    background: linear-gradient(90deg, #fff1e6, #ffffff);
+    border: 2px solid var(--color-coral);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    text-decoration: none;
+    color: var(--color-text);
+    transition: transform 0.2s ease;
+}
+.rakuten-memo-band:hover { transform: translateY(-3px); }
+.rakuten-memo-band img { width: 72px; flex: 0 0 72px; }
+.rakuten-memo-band .txt { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+.rakuten-memo-band strong { font-size: 17px; color: var(--color-heading); }
+.rakuten-memo-band .txt span { font-size: 13px; color: var(--color-muted); }
+.rakuten-memo-band .go {
+    flex: 0 0 auto;
+    background: var(--color-coral);
+    color: #fff;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 9px 16px;
+    border-radius: var(--radius-pill);
+}
+@media (max-width: 640px) {
+    .rakuten-memo-band { gap: 10px; padding: 12px 14px; }
+    .rakuten-memo-band img { width: 56px; flex-basis: 56px; }
+    .rakuten-memo-band strong { font-size: 15px; }
+    .rakuten-memo-band .go { display: none; }
+}
