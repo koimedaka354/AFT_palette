@@ -1,0 +1,15 @@
+{
+  "name": "ニシアフ・パレット",
+  "short_name": "ニシアフ",
+  "description": "ニシアフリカトカゲモドキのモルフ計算と、うちの子の体重・ごはん・脱皮の記録",
+  "lang": "ja",
+  "start_url": "palette.html?mode=my-tab",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f4ec",
+  "theme_color": "#5c4636",
+  "icons": [
+    { "src": "../favicon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "../icon-1024.png", "sizes": "1024x1024", "type": "image/png", "purpose": "any" }
+  ]
+}

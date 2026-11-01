@@ -116,6 +116,129 @@
         .reverse-table tr:hover { background-color: #faf9f5; }
         .tag-prob { background: #e8f0fe; color: #1a4373; font-weight: bold; padding: 4px 8px; border-radius: 4px; font-size: 12px; display: inline-block; }
 
+        /* うちの子（個体管理）タブ */
+        .my-toolbar { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 16px; }
+        .my-btn { background: #edebe4; color: #5c4636; border: 1px solid #dbd7cb; padding: 9px 14px; border-radius: 6px; font-size: 13px; font-weight: bold; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; text-decoration: none; }
+        .my-btn:hover { background: #e3e0d6; }
+        .my-btn.primary { background: #5c4636; color: #fff; border-color: #5c4636; }
+        .my-btn.primary:hover { background: #463529; }
+        .my-btn.small { padding: 5px 9px; font-size: 12px; }
+        .my-btn.danger { color: #c9302c; }
+        .install-box { background: #f3f8f1; border: 1px solid #cfe3c8; border-radius: 10px; padding: 12px 14px; margin-bottom: 18px; font-size: 13px; line-height: 1.7; }
+        .install-how { color: #5c6a55; font-size: 12px; margin: 2px 0 8px; }
+        .backup-warn { background: #fff8e6; border: 1px solid #f0d99a; border-radius: 10px; padding: 10px 14px; margin-bottom: 16px; font-size: 13px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+        .my-summary { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 16px; font-size: 13px; }
+        .my-chip { background: #faf9f5; border: 1px solid #e1ded6; border-radius: 999px; padding: 5px 12px; }
+        .my-chip.warn { background: #fff5f0; border-color: #f3c9b5; color: #9a3b12; cursor: pointer; font-weight: bold; }
+        .my-chip.muted { color: #8a7c6d; }
+
+        .my-layout { display: grid; grid-template-columns: minmax(320px, 400px) 1fr; gap: 20px; align-items: start; }
+        .my-list-pane { border: 1px solid #dbd7cb; border-radius: 12px; background: #fff; overflow: hidden; position: sticky; top: 12px; }
+        .my-filters { padding: 12px; display: grid; gap: 8px; border-bottom: 1px solid #e1ded6; background: #faf9f5; }
+        .my-filters input, .my-filters select { width: 100%; padding: 8px 10px; border: 2px solid #706a61; border-radius: 6px; font-size: 14px; box-sizing: border-box; background: #fff; color: #3d2e24; }
+        .my-filter-row { display: flex; gap: 6px; }
+        .my-filter-row select { flex: 1; min-width: 0; font-size: 13px; padding: 7px 6px; }
+        .my-list { max-height: calc(100vh - 200px); overflow-y: auto; }
+        .my-count { padding: 6px 12px; font-size: 11.5px; color: #8a7c6d; border-bottom: 1px solid #edebe4; }
+        .my-row { display: flex; gap: 10px; align-items: center; padding: 10px 12px; border-bottom: 1px solid #edebe4; cursor: pointer; }
+        .my-row:hover { background: #fdfaf2; }
+        .my-row.active { background: #f3ebd4; box-shadow: inset 4px 0 0 #9c7650; }
+        .my-row img { width: 52px; height: 52px; border-radius: 8px; object-fit: cover; flex-shrink: 0; background: #edebe4; }
+        .my-row-main { flex: 1; min-width: 0; }
+        .my-row-name { font-weight: bold; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .my-row-name small { font-weight: normal; color: #8a7c6d; margin-right: 4px; }
+        .my-row-sub { font-size: 11.5px; color: #706a61; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 2px; }
+        .my-row-side { text-align: right; font-size: 12px; color: #706a61; flex-shrink: 0; line-height: 1.6; }
+        .my-row-side strong { color: #3d2e24; font-size: 13px; }
+        .my-badge { display: inline-block; font-size: 10.5px; padding: 1px 6px; border-radius: 4px; background: #fff5f0; color: #9a3b12; border: 1px solid #f3c9b5; margin-right: 4px; white-space: nowrap; }
+        .my-badge.gray { background: #edebe4; color: #706a61; border-color: #dbd7cb; }
+        .my-empty { text-align: center; color: #706a61; font-size: 13px; padding: 28px 12px; line-height: 1.8; }
+
+        .my-detail-pane { border: 1px solid #dbd7cb; border-radius: 12px; padding: 20px; background: #fff; min-height: 320px; box-sizing: border-box; min-width: 0; }
+        .my-detail-head { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+        .my-detail-head img { width: 84px; height: 84px; border-radius: 12px; object-fit: cover; background: #edebe4; }
+        .my-detail-head h3 { margin: 0 0 4px; font-size: 20px; color: #5c4636; word-break: break-all; }
+        .my-detail-title { flex: 1; min-width: 180px; font-size: 13px; color: #706a61; line-height: 1.6; }
+        .my-back { display: none; margin-bottom: 12px; }
+        .my-section { margin-top: 24px; }
+        .my-section h4 { font-size: 14px; color: #5c4636; margin: 0 0 10px; border-left: 4px solid #9c7650; padding-left: 8px; }
+        .my-profile { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px 16px; font-size: 13px; margin-top: 16px; }
+        .my-profile span { display: block; font-size: 11px; color: #8a7c6d; }
+        .my-profile a { color: #9c7650; font-weight: bold; cursor: pointer; }
+        .my-hint { font-size: 12px; color: #8a7c6d; margin: 6px 0; line-height: 1.7; }
+
+        .rec-box { background: #faf9f5; border: 1px solid #e1ded6; border-radius: 10px; padding: 14px; }
+        .rec-types { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+        .rec-types .my-btn.active { background: #5c4636; color: #fff; border-color: #5c4636; }
+        .rec-fields { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; font-size: 13px; }
+        .rec-fields label { display: inline-flex; align-items: center; gap: 5px; }
+        .rec-fields input[type=date], .rec-fields input[type=number], .rec-fields input[type=text], .rec-fields select { padding: 7px 8px; border: 2px solid #706a61; border-radius: 6px; font-size: 14px; background: #fff; color: #3d2e24; box-sizing: border-box; }
+        .rec-fields input[type=number] { width: 90px; }
+        .rec-fields input[type=text] { flex: 1; min-width: 160px; }
+
+        .wchart { width: 100%; height: auto; display: block; background: #fdfdfb; border: 1px solid #f0ede6; border-radius: 10px; }
+        .my-stats { display: flex; gap: 18px; flex-wrap: wrap; font-size: 12px; color: #706a61; margin: 0 0 10px; }
+        .my-stats strong { display: block; font-size: 18px; color: #5c4636; }
+        .log-filter { padding: 5px 8px; border: 1px solid #dbd7cb; border-radius: 6px; font-size: 12px; margin-left: 8px; }
+        .log-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+        .log-table td { padding: 7px 6px; border-bottom: 1px solid #edebe4; vertical-align: top; }
+        .log-table td:first-child { white-space: nowrap; color: #706a61; width: 1%; }
+        .log-table td:last-child { width: 1%; }
+        .log-del { background: none; border: none; color: #b0a89c; cursor: pointer; font-size: 14px; padding: 0 4px; }
+        .log-del:hover { color: #c9302c; }
+
+        .pair-row { display: flex; gap: 10px; align-items: center; padding: 10px 0; border-bottom: 1px solid #edebe4; font-size: 13px; flex-wrap: wrap; }
+        .pair-row-main { flex: 1; min-width: 200px; line-height: 1.6; }
+        .pair-out { font-size: 12px; color: #706a61; }
+        .pair-warn { font-size: 12px; color: #c92a2a; }
+        .ind-actions { display: flex; flex-wrap: wrap; gap: 6px; }
+        .pick-from-my { margin-bottom: 10px; }
+        .pick-from-my select { width: 100%; padding: 8px 10px; border: 2px dashed #9c7650; border-radius: 6px; font-size: 13px; background: #fffdf8; color: #5c4636; font-weight: bold; }
+
+        /* 登録フォーム・まとめて記録（重ねて出す画面） */
+        .my-modal { position: fixed; inset: 0; background: rgba(61, 46, 36, 0.45); display: none; align-items: flex-start; justify-content: center; z-index: 50; overflow-y: auto; padding: 30px 12px; box-sizing: border-box; }
+        .my-modal.open { display: flex; }
+        .my-modal-body { background: #fff; border-radius: 14px; padding: 20px; width: 100%; max-width: 760px; box-sizing: border-box; }
+        .my-modal-body h3 { margin: 0 0 14px; font-size: 17px; color: #5c4636; }
+        .my-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 18px; margin-bottom: 8px; }
+        .my-form-row { display: flex; flex-direction: column; gap: 4px; font-size: 13px; }
+        .my-form-row.wide { grid-column: 1 / -1; }
+        .my-form-row label { font-weight: bold; font-size: 12.5px; }
+        .my-form-row input, .my-form-row select, .my-form-row textarea { width: 100%; padding: 8px 10px; border: 2px solid #706a61; border-radius: 6px; font-size: 14px; box-sizing: border-box; background: #fff; color: #3d2e24; font-family: inherit; }
+        .my-form-morph { display: grid; grid-template-columns: 1fr 1fr; gap: 0 18px; }
+        .bulk-head { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; font-size: 13px; margin-bottom: 12px; }
+        .bulk-head select, .bulk-head input { padding: 7px 8px; border: 2px solid #706a61; border-radius: 6px; font-size: 14px; }
+        .bulk-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+        .bulk-table th { text-align: left; background: #f0ede6; padding: 8px 6px; font-size: 12px; }
+        .bulk-table td { padding: 6px; border-bottom: 1px solid #edebe4; }
+        .bulk-table input[type=number] { width: 90px; padding: 6px 8px; border: 2px solid #706a61; border-radius: 6px; font-size: 14px; }
+        .bulk-table input[type=checkbox] { width: 20px; height: 20px; }
+
+        /* 広告枠（AdSenseの広告ユニット、未設定の間は飼育用品の楽天リンク） */
+        .ad-slot { margin: 32px 0 0; }
+        .ad-slot:empty { display: none; }
+        .ad-label { font-size: 11px; color: #8a7c6d; margin-bottom: 6px; }
+        .pr-items { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
+        .pr-item { display: block; padding: 12px 14px; border: 1px solid #f3dcc2; background: #fff8ef; border-radius: 10px; text-decoration: none; color: #5c4636; font-size: 13px; line-height: 1.6; }
+        .pr-item strong { display: block; font-size: 14px; }
+        .pr-item:hover { background: #fdf0de; }
+
+        /* PCより狭い画面: 一覧と詳細を切り替えて表示 */
+        @media (max-width: 1023px) {
+            .my-layout { grid-template-columns: 1fr; }
+            .my-list-pane { position: static; }
+            .my-list { max-height: none; }
+            .my-layout.show-detail .my-list-pane { display: none; }
+            .my-layout:not(.show-detail) .my-detail-pane { display: none; }
+            .my-back { display: inline-flex; }
+        }
+        @media (max-width: 600px) {
+            .my-detail-pane { padding: 14px; }
+            .my-form-grid, .my-form-morph { grid-template-columns: 1fr; }
+            .my-modal { padding: 10px 6px; }
+            .my-modal-body { padding: 16px 12px; }
+        }
+
         /* スマートフォン向けレイアウト */
         @media (max-width: 768px) {
             body { padding: 10px; }
@@ -149,6 +272,11 @@
     <link rel="icon" type="image/png" sizes="48x48" href="../favicon-48.png">
     <link rel="icon" type="image/png" sizes="192x192" href="../favicon-192.png">
     <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <link rel="manifest" href="manifest.webmanifest">
+    <meta name="theme-color" content="#5c4636">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="ニシアフ・パレット">
 </head>
 <body>
 
@@ -173,6 +301,7 @@
     <div class="tabs-container">
         <button class="tab-btn active" id="btn-normal-tab" onclick="switchTab('normal-tab')">📊 通常ブリード計算</button>
         <button class="tab-btn" id="btn-reverse-tab" onclick="switchTab('reverse-tab')">🧬 モルフから逆引き検索</button>
+        <button class="tab-btn" id="btn-my-tab" onclick="switchTab('my-tab')">🦎 うちの子</button>
     </div>
 
     <div id="normal-tab" class="tab-content active">
@@ -186,10 +315,12 @@
         <div class="parent-select-box">
             <div class="parent-panel">
                 <h2>親 1 (♂ オス)</h2>
+                <div class="pick-from-my" id="pick-p1"></div>
                 <div id="parent1-inputs"></div>
             </div>
             <div class="parent-panel">
                 <h2>親 2 (♀ メス)</h2>
+                <div class="pick-from-my" id="pick-p2"></div>
                 <div id="parent2-inputs"></div>
             </div>
         </div>
@@ -200,6 +331,7 @@
             <h2>🎨 予測される子のモルフ</h2>
             <div class="cards-grid" id="results-cards-container"></div>
         </div>
+        <div class="ad-slot" data-ad="calc"></div>
     </div>
 
     <div id="reverse-tab" class="tab-content">
@@ -224,6 +356,54 @@
                 </table>
             </div>
         </div>
+        <div class="ad-slot" data-ad="reverse"></div>
+    </div>
+
+    <div id="my-tab" class="tab-content">
+        <div class="reverse-instruction" style="text-align:left; font-weight: normal; font-size: 13px; line-height: 1.7;">
+            🦎 飼っている子を何匹でも登録でき、体重・ごはん・脱皮などの記録と、うちの子どうしの交配計算ができます。<br>
+            📱 記録は<strong>この端末の中だけ</strong>に保存されます（サーバーには送りません）。スマホとPCで続けて使うときや機種変更のときは、「バックアップを保存」したファイルをもう一方で「戻す」と引き継げます。
+        </div>
+
+        <div class="install-box" id="install-box">
+            <div><strong>📲 スマホにアプリとして入れられます（無料）</strong>　ホーム画面のアイコンから開け、電波が無くても使えます。</div>
+            <div class="install-how" id="install-how">iPhone: 共有ボタン（□↑）→「ホーム画面に追加」／ Android: メニュー（⋮）→「ホーム画面に追加」</div>
+            <button class="my-btn" id="install-btn" style="display:none" onclick="installApp()">📲 ホーム画面に追加</button>
+        </div>
+
+        <div class="backup-warn" id="backup-warn" style="display:none"></div>
+
+        <div class="my-toolbar">
+            <button class="my-btn primary" onclick="openIndividualForm()">＋ 個体を登録</button>
+            <button class="my-btn" onclick="openBulk()">📝 まとめて記録</button>
+            <button class="my-btn" onclick="exportBackup()">💾 バックアップを保存</button>
+            <label class="my-btn">📂 バックアップから戻す<input type="file" accept="application/json,.json" style="display:none" onchange="importBackup(this)"></label>
+        </div>
+
+        <div class="my-summary" id="my-summary"></div>
+
+        <div class="my-layout" id="my-layout">
+            <aside class="my-list-pane">
+                <div class="my-filters">
+                    <input type="search" id="my-q" placeholder="名前・管理番号・モルフ・置き場で探す" oninput="renderMyList()">
+                    <div class="my-filter-row">
+                        <select id="my-f-sex" onchange="renderMyList()" aria-label="性別で絞り込む">
+                            <option value="">♂♀すべて</option><option value="male">♂ オス</option><option value="female">♀ メス</option><option value="unknown">性別不明</option>
+                        </select>
+                        <select id="my-f-status" onchange="renderMyList()" aria-label="状態で絞り込む">
+                            <option value="active">飼育中</option><option value="">すべて</option><option value="sold">譲渡・販売済み</option><option value="passed">お星さま</option>
+                        </select>
+                        <select id="my-sort" onchange="renderMyList()" aria-label="並べ替え">
+                            <option value="code">管理番号順</option><option value="name">名前順</option><option value="feed">ごはんが空いた順</option><option value="weight">体重が重い順</option><option value="young">若い順</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="my-list" id="my-list"></div>
+            </aside>
+            <section class="my-detail-pane" id="my-detail"></section>
+        </div>
+
+        <div class="ad-slot" data-ad="my"></div>
     </div>
 
     <div class="sticker-promo" style="margin-top: 40px; padding: 20px; border-radius: 16px; background: #fff8ef; border: 2px solid #f3dcc2; text-align: center;">
@@ -233,6 +413,55 @@
             <a href="https://line.me/S/sticker/36763143" target="_blank" rel="noopener" style="text-decoration: none; font-size: 12px;"><img src="../img/stickers/5/main-240x240.png" alt="白黒しま柄パーカーのめだかちゃん（第5弾）" loading="lazy" width="96" height="96" style="display: block; margin: 0 auto 4px;">白黒しま柄</a>
             <a href="https://line.me/S/sticker/36799653" target="_blank" rel="noopener" style="text-decoration: none; font-size: 12px;"><img src="../img/stickers/6/main-240x240.png" alt="アメル柄パーカーのめだかちゃん（第6弾）" loading="lazy" width="96" height="96" style="display: block; margin: 0 auto 4px;">アメル柄</a>
             <a href="https://line.me/S/sticker/36892491" target="_blank" rel="noopener" style="text-decoration: none; font-size: 12px;"><img src="../img/stickers/7/main-240x240.png" alt="キャラメル柄パーカーのめだかちゃん（第7弾）" loading="lazy" width="96" height="96" style="display: block; margin: 0 auto 4px;">キャラメル柄</a>
+        </div>
+    </div>
+</div>
+
+<div class="my-modal" id="my-form" onclick="if (event.target === this) closeIndividualForm()">
+    <div class="my-modal-body">
+        <h3 id="my-form-title">個体を登録</h3>
+        <div class="my-form-grid">
+            <div class="my-form-row"><label for="ind_name">名前</label><input type="text" id="ind_name" maxlength="30" placeholder="例: もち"></div>
+            <div class="my-form-row"><label for="ind_code">管理番号（任意）</label><input type="text" id="ind_code" maxlength="20" placeholder="例: A-01"></div>
+            <div class="my-form-row"><label for="ind_sex">性別</label>
+                <select id="ind_sex"><option value="male">♂ オス</option><option value="female">♀ メス</option><option value="unknown">不明</option></select></div>
+            <div class="my-form-row"><label for="ind_status">状態</label>
+                <select id="ind_status"><option value="active">飼育中</option><option value="sold">譲渡・販売済み</option><option value="passed">お星さま</option></select></div>
+            <div class="my-form-row"><label for="ind_hatch">生まれた日（わかれば）</label><input type="date" id="ind_hatch"></div>
+            <div class="my-form-row"><label for="ind_acquired">お迎えした日</label><input type="date" id="ind_acquired"></div>
+            <div class="my-form-row"><label for="ind_source">お迎え元</label><input type="text" id="ind_source" maxlength="40" placeholder="例: ○○ブリーダーさん／自家繁殖"></div>
+            <div class="my-form-row"><label for="ind_cage">置き場・ケース</label><input type="text" id="ind_cage" maxlength="20" placeholder="例: ラック2段目 右"></div>
+            <div class="my-form-row"><label for="ind_sire">父（登録済みの子から）</label><select id="ind_sire"></select></div>
+            <div class="my-form-row"><label for="ind_dam">母（登録済みの子から）</label><select id="ind_dam"></select></div>
+            <div class="my-form-row wide"><label for="ind_memo">メモ</label><textarea id="ind_memo" rows="2" maxlength="300" placeholder="例: 尻尾が太め。人工フードもよく食べる"></textarea></div>
+        </div>
+        <div class="group-title base">♥ モルフ（わかる範囲で。分からない項目は「選択しない」のまま）</div>
+        <div class="my-form-morph" id="ind-morph-inputs"></div>
+        <div class="my-toolbar" style="margin-top: 14px;">
+            <button class="my-btn primary" onclick="saveIndividual()">保存する</button>
+            <button class="my-btn" onclick="closeIndividualForm()">やめる</button>
+        </div>
+    </div>
+</div>
+
+<div class="my-modal" id="my-bulk" onclick="if (event.target === this) closeBulk()">
+    <div class="my-modal-body">
+        <h3>📝 まとめて記録</h3>
+        <div class="bulk-head">
+            <label>日付 <input type="date" id="bulk_date"></label>
+            <label>記録 <select id="bulk_type" onchange="renderBulkRows()">
+                <option value="weight">⚖️ 体重</option><option value="feed">🦗 ごはん</option><option value="shed">✨ 脱皮</option><option value="poop">💩 排泄</option><option value="clean">🧽 掃除</option>
+            </select></label>
+            <span id="bulk_feed_opts"></span>
+        </div>
+        <p class="my-hint" id="bulk_hint"></p>
+        <table class="bulk-table">
+            <thead id="bulk_thead"></thead>
+            <tbody id="bulk_rows"></tbody>
+        </table>
+        <div class="my-toolbar" style="margin-top: 14px;">
+            <button class="my-btn primary" onclick="saveBulk()">まとめて記録する</button>
+            <button class="my-btn" onclick="closeBulk()">やめる</button>
         </div>
     </div>
 </div>
@@ -332,12 +561,11 @@ function switchTab(tabId) {
     document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
     document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
 
-    if (tabId === 'normal-tab') {
-        document.getElementById('btn-normal-tab').classList.add('active');
-    } else {
-        document.getElementById('btn-reverse-tab').classList.add('active');
-    }
+    if (!document.getElementById(tabId)) tabId = currentActiveTab = 'normal-tab';
+    document.getElementById('btn-' + tabId).classList.add('active');
     document.getElementById(tabId).classList.add('active');
+    if (tabId === 'my-tab') renderMyTab();
+    renderAdSlots();
 
     updateUrlParams();
 }
@@ -852,6 +1080,748 @@ function copyShareUrl() {
 }
 
 // ==========================================
+// 【🦎 うちの子：個体管理】
+// 記録はこの端末の localStorage だけに置く（サーバー無し・費用0円・個人情報を預からない）。
+// 端末が変わっても引き継げるよう、JSONのバックアップ保存・復元を用意する。
+// 記録は個体ごとに logs: [{ id, d(日付), t(種類), ...種類ごとの値 }] の1本にまとめて持つ。
+// ==========================================
+const MY_KEY = 'nishiafu-palette.individuals.v1';
+const MY_BACKUP_KEY = 'nishiafu-palette.lastBackup';
+const FEED_WARN_DAYS = 7;          // ごはんがこの日数以上空いたら目印を付ける
+const WEIGHT_DROP_RATE = 0.1;      // 直近60日の最大体重から1割以上減ったら目印を付ける
+const BACKUP_REMIND_DAYS = 30;
+const LOG_TYPES = {
+    weight: { label: '体重', icon: '⚖️' },
+    feed: { label: 'ごはん', icon: '🦗' },
+    shed: { label: '脱皮', icon: '✨' },
+    poop: { label: '排泄', icon: '💩' },
+    clean: { label: '掃除', icon: '🧽' },
+    mating: { label: '交配', icon: '💞' },
+    lay: { label: '産卵', icon: '🥚' },
+    note: { label: 'メモ', icon: '📝' }
+};
+const FOODS = ['コオロギ', 'デュビア', 'レッドローチ', 'ミルワーム', 'ハニーワーム', '人工フード', 'その他'];
+const STATUS_LABELS = { active: '飼育中', sold: '譲渡・販売済み', passed: 'お星さま' };
+let myEditingId = null;
+let mySelectedId = null;
+let myRecType = 'weight';
+let myLogFilter = '';
+let myLogShowAll = false;
+
+function newId(prefix) { return prefix + Date.now().toString(36) + Math.random().toString(36).slice(2, 6); }
+
+// v1（体重・ごはん・脱皮を別々の配列で持っていた形）を logs にまとめ直す
+function normalizeIndividual(x) {
+    const ind = Object.assign({ code: '', status: 'active', source: '', cage: '', sireId: '', damId: '', memo: '', genes: {} }, x);
+    ind.logs = Array.isArray(x.logs) ? x.logs.slice() : [];
+    (x.weights || []).forEach(w => ind.logs.push({ id: newId('l'), d: w.d, t: 'weight', g: w.g }));
+    (x.feeds || []).forEach(d => ind.logs.push({ id: newId('l'), d, t: 'feed' }));
+    (x.sheds || []).forEach(d => ind.logs.push({ id: newId('l'), d, t: 'shed' }));
+    delete ind.weights; delete ind.feeds; delete ind.sheds;
+    if (!STATUS_LABELS[ind.status]) ind.status = 'active';
+    return ind;
+}
+function loadIndividuals() {
+    let raw;
+    try { raw = JSON.parse(localStorage.getItem(MY_KEY) || '[]'); } catch (e) { return []; }
+    if (!Array.isArray(raw)) return [];
+    const list = raw.map(normalizeIndividual);
+    if (raw.some(x => !Array.isArray(x.logs))) saveIndividuals(list);   // 引き継いだ形で保存し直し、記録のidを固定する
+    return list;
+}
+function saveIndividuals(list) {
+    try { localStorage.setItem(MY_KEY, JSON.stringify(list)); return true; }
+    catch (e) { alert('保存できませんでした（ブラウザの保存領域が使えないか、いっぱいです）。プライベートモードでないか確認し、バックアップを保存してください。'); return false; }
+}
+function updateIndividual(id, fn) {
+    const list = loadIndividuals();
+    const ind = list.find(x => x.id === id);
+    if (!ind) return false;
+    fn(ind, list);
+    return saveIndividuals(list);
+}
+function escapeHtml(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+function todayStr() {
+    const d = new Date();
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+}
+function sexLabel(s) { return s === 'male' ? '♂' : s === 'female' ? '♀' : '性別不明'; }
+function ageText(hatch) {
+    if (!hatch) return '';
+    const days = daysSince(hatch);
+    if (days === null || days < 0) return '';
+    if (days < 60) return `生後${days}日`;
+    const m = Math.floor(days / 30.44);
+    return m < 24 ? `生後${m}か月` : `${Math.floor(m / 12)}歳${m % 12}か月`;
+}
+function daysSince(d) {
+    if (!d) return null;
+    const n = Math.floor((new Date(todayStr()) - new Date(d)) / 86400000);
+    return isNaN(n) ? null : n;
+}
+function visualImageFor(genes) {
+    const label = getMorphLabelFromParam(genes);
+    const words = label.split(' ');
+    const main = words.find((w, i) => w && w !== 'Het' && words[i - 1] !== 'Het') || 'ノーマル';
+    return getMorphImageUrl(main);
+}
+function displayName(ind) { return (ind.code ? ind.code + ' ' : '') + ind.name; }
+
+function logsOf(ind, t) {
+    return (ind.logs || []).filter(l => !t || l.t === t).sort((a, b) => a.d.localeCompare(b.d));
+}
+// 一覧と目印に使う「いまの状態」をまとめて出す
+function individualStatus(ind) {
+    const ws = logsOf(ind, 'weight');
+    const lastW = ws[ws.length - 1] || null;
+    const eaten = logsOf(ind, 'feed').filter(l => !l.ng);
+    const lastFeed = eaten[eaten.length - 1] || null;
+    const feedDays = lastFeed ? daysSince(lastFeed.d) : null;
+    let weightDrop = false;
+    if (lastW) {
+        const from = new Date(new Date(lastW.d).getTime() - 60 * 86400000).toISOString().slice(0, 10);
+        const max = Math.max(...ws.filter(w => w.d >= from).map(w => w.g));
+        weightDrop = max > 0 && lastW.g <= max * (1 - WEIGHT_DROP_RATE);
+    }
+    const active = ind.status === 'active';
+    return { lastW, lastFeed, feedDays, feedWarn: active && feedDays !== null && feedDays >= FEED_WARN_DAYS, weightDrop: active && weightDrop };
+}
+
+// ---------- 画面全体 ----------
+function renderMyTab() {
+    const list = loadIndividuals();
+    if (mySelectedId && !list.some(x => x.id === mySelectedId)) mySelectedId = null;
+    renderSummary(list);
+    renderBackupWarn(list);
+    renderMyList(list);
+    renderMyDetail(list);
+    renderParentPickers(list);
+}
+function renderSummary(list) {
+    const box = document.getElementById('my-summary');
+    if (!box) return;
+    if (list.length === 0) { box.innerHTML = ''; return; }
+    const act = list.filter(x => x.status === 'active');
+    const n = s => act.filter(x => x.sex === s).length;
+    const sts = act.map(individualStatus);
+    const feedWarn = sts.filter(s => s.feedWarn).length;
+    const drop = sts.filter(s => s.weightDrop).length;
+    let bytes = 0;
+    try { bytes = (localStorage.getItem(MY_KEY) || '').length * 2; } catch (e) {}
+    box.innerHTML = [
+        `<span class="my-chip">🦎 飼育中 <strong>${act.length}匹</strong>（♂${n('male')}・♀${n('female')}${n('unknown') ? '・不明' + n('unknown') : ''}）</span>`,
+        feedWarn ? `<span class="my-chip warn" onclick="sortBy('feed')">🦗 ごはんが${FEED_WARN_DAYS}日以上空いている: ${feedWarn}匹</span>` : '',
+        drop ? `<span class="my-chip warn" onclick="filterWarn()">⚖️ 体重が1割以上減った: ${drop}匹</span>` : '',
+        `<span class="my-chip muted">保存容量 ${Math.max(1, Math.round(bytes / 1024))}KB / 約5MB</span>`
+    ].join('');
+}
+function renderBackupWarn(list) {
+    const box = document.getElementById('backup-warn');
+    if (!box) return;
+    let last = null;
+    try { last = localStorage.getItem(MY_BACKUP_KEY); } catch (e) {}
+    const days = daysSince(last);
+    const hasLogs = list.some(x => (x.logs || []).length > 0);
+    if (!hasLogs || (days !== null && days < BACKUP_REMIND_DAYS)) { box.style.display = 'none'; return; }
+    box.innerHTML = `💾 ${last ? `最後のバックアップから${days}日たちました。` : 'まだバックアップがありません。'}ブラウザのデータ削除や機種変更で記録が消えないよう、ファイルに保存しておきましょう。
+        <button class="my-btn small primary" onclick="exportBackup()">いま保存する</button>`;
+    box.style.display = 'flex';
+}
+function sortBy(v) { document.getElementById('my-sort').value = v; document.getElementById('my-f-status').value = 'active'; renderMyList(); }
+function filterWarn() { document.getElementById('my-q').value = '要チェック'; renderMyList(); }
+
+// ---------- 一覧 ----------
+function renderMyList(list) {
+    list = list || loadIndividuals();
+    const box = document.getElementById('my-list');
+    if (!box) return;
+    if (list.length === 0) {
+        box.innerHTML = '<div class="my-empty">まだ登録がありません。<br>「＋ 個体を登録」から始めましょう。</div>';
+        return;
+    }
+    const q = document.getElementById('my-q').value.trim().toLowerCase();
+    const fSex = document.getElementById('my-f-sex').value;
+    const fStatus = document.getElementById('my-f-status').value;
+    const sort = document.getElementById('my-sort').value;
+    let rows = list.map(ind => ({ ind, st: individualStatus(ind), morph: getMorphLabelFromParam(ind.genes || {}) }));
+    rows = rows.filter(r => (!fSex || r.ind.sex === fSex) && (!fStatus || r.ind.status === fStatus));
+    if (q) {
+        rows = rows.filter(r => q === '要チェック'
+            ? (r.st.feedWarn || r.st.weightDrop)
+            : [r.ind.name, r.ind.code, r.morph, r.ind.cage, r.ind.memo].join(' ').toLowerCase().includes(q));
+    }
+    const byCode = (a, b) => (a.ind.code || '￿').localeCompare(b.ind.code || '￿', 'ja', { numeric: true }) || a.ind.name.localeCompare(b.ind.name, 'ja');
+    const sorters = {
+        code: byCode,
+        name: (a, b) => a.ind.name.localeCompare(b.ind.name, 'ja'),
+        feed: (a, b) => (b.st.feedDays === null ? -1 : b.st.feedDays) - (a.st.feedDays === null ? -1 : a.st.feedDays) || byCode(a, b),
+        weight: (a, b) => (b.st.lastW ? b.st.lastW.g : -1) - (a.st.lastW ? a.st.lastW.g : -1) || byCode(a, b),
+        young: (a, b) => (b.ind.hatch || '').localeCompare(a.ind.hatch || '') || byCode(a, b)
+    };
+    rows.sort(sorters[sort] || byCode);
+    const html = rows.map(({ ind, st, morph }) => {
+        const badges = [
+            st.feedWarn ? `<span class="my-badge">ごはん${st.feedDays}日</span>` : '',
+            st.weightDrop ? '<span class="my-badge">体重減</span>' : '',
+            ind.status !== 'active' ? `<span class="my-badge gray">${STATUS_LABELS[ind.status]}</span>` : ''
+        ].join('');
+        return `<div class="my-row${ind.id === mySelectedId ? ' active' : ''}" onclick="selectIndividual('${ind.id}')">
+            <img src="${visualImageFor(ind.genes || {})}" alt="" loading="lazy">
+            <div class="my-row-main">
+                <div class="my-row-name">${ind.code ? `<small>${escapeHtml(ind.code)}</small>` : ''}${escapeHtml(ind.name)} <span style="font-weight:normal">${sexLabel(ind.sex)}</span></div>
+                <div class="my-row-sub">${escapeHtml(morph)}</div>
+                ${badges ? `<div class="my-row-sub">${badges}</div>` : ''}
+            </div>
+            <div class="my-row-side">
+                ${st.lastW ? `<strong>${st.lastW.g}g</strong>` : '—'}<br>
+                ${st.feedDays === null ? '' : st.feedDays === 0 ? '🦗今日' : `🦗${st.feedDays}日前`}
+            </div>
+        </div>`;
+    }).join('');
+    box.innerHTML = `<div class="my-count">${rows.length}匹を表示（登録 ${list.length}匹）</div>` +
+        (html || '<div class="my-empty">条件に合う子がいません。</div>');
+}
+function selectIndividual(id) {
+    mySelectedId = id;
+    myLogShowAll = false;
+    myLogFilter = '';
+    document.getElementById('my-layout').classList.add('show-detail');
+    const list = loadIndividuals();
+    renderMyList(list);
+    renderMyDetail(list);
+    if (window.matchMedia('(max-width: 1023px)').matches) {
+        document.getElementById('my-layout').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+}
+function backToList() {
+    document.getElementById('my-layout').classList.remove('show-detail');
+    document.getElementById('my-layout').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// ---------- 詳細 ----------
+function renderMyDetail(list) {
+    list = list || loadIndividuals();
+    const box = document.getElementById('my-detail');
+    if (!box) return;
+    const ind = list.find(x => x.id === mySelectedId);
+    if (!ind) {
+        document.getElementById('my-layout').classList.remove('show-detail');
+        box.innerHTML = list.length === 0
+            ? '<div class="my-empty">登録した子の記録・体重グラフ・ペア候補がここに出ます。</div>'
+            : '<div class="my-empty">左の一覧から子を選ぶと、記録・体重グラフ・ペア候補が出ます。</div>';
+        return;
+    }
+    const genes = ind.genes || {};
+    const morph = getMorphLabelFromParam(genes);
+    const byId = id => list.find(x => x.id === id);
+    const link = id => { const p = byId(id); return p ? `<a onclick="selectIndividual('${p.id}')">${escapeHtml(displayName(p))}</a>` : '—'; };
+    const children = list.filter(x => x.sireId === ind.id || x.damId === ind.id);
+    const prof = [
+        ['年齢', ageText(ind.hatch) || '—'],
+        ['生まれた日', ind.hatch || '—'],
+        ['お迎えした日', ind.acquired || '—'],
+        ['お迎え元', escapeHtml(ind.source) || '—'],
+        ['置き場・ケース', escapeHtml(ind.cage) || '—'],
+        ['父', ind.sireId ? link(ind.sireId) : '—'],
+        ['母', ind.damId ? link(ind.damId) : '—'],
+        ['子ども', children.length ? children.map(c => link(c.id)).join('、') : '—']
+    ];
+    box.innerHTML = `
+        <button class="my-btn small my-back" onclick="backToList()">← 一覧にもどる</button>
+        <div class="my-detail-head">
+            <img src="${visualImageFor(genes)}" alt="${escapeHtml(morph)}">
+            <div class="my-detail-title">
+                <h3>${escapeHtml(ind.name)} ${sexLabel(ind.sex)}</h3>
+                ${ind.code ? `管理番号 ${escapeHtml(ind.code)}・` : ''}${STATUS_LABELS[ind.status]}<br>${escapeHtml(morph)}
+            </div>
+            <div class="ind-actions">
+                <button class="my-btn small" onclick="openIndividualForm('${ind.id}')">編集</button>
+                <button class="my-btn small danger" onclick="deleteIndividual('${ind.id}')">削除</button>
+            </div>
+        </div>
+        <div class="my-profile">${prof.map(([k, v]) => `<div><span>${k}</span>${v}</div>`).join('')}</div>
+        ${ind.memo ? `<p class="my-hint" style="white-space:pre-wrap">📝 ${escapeHtml(ind.memo)}</p>` : ''}
+
+        <div class="my-section">
+            <h4>記録する</h4>
+            <div class="rec-box">
+                <div class="rec-types">${Object.keys(LOG_TYPES).map(t => `<button class="my-btn small${t === myRecType ? ' active' : ''}" onclick="setRecType('${t}')">${LOG_TYPES[t].icon} ${LOG_TYPES[t].label}</button>`).join('')}</div>
+                <div class="rec-fields" id="rec-fields">${recFieldsHtml(ind, list)}</div>
+            </div>
+        </div>
+
+        <div class="my-section">
+            <h4>体重の推移</h4>
+            ${weightSectionHtml(ind)}
+        </div>
+
+        <div class="my-section">
+            <h4>記録の一覧
+                <select class="log-filter" onchange="myLogFilter = this.value; myLogShowAll = false; renderMyDetail();">
+                    <option value="">すべて</option>
+                    ${Object.keys(LOG_TYPES).map(t => `<option value="${t}"${t === myLogFilter ? ' selected' : ''}>${LOG_TYPES[t].icon} ${LOG_TYPES[t].label}</option>`).join('')}
+                </select>
+            </h4>
+            ${logTableHtml(ind, list)}
+        </div>
+
+        <div class="my-section">
+            <h4>💞 ペア候補（うちの子どうし）</h4>
+            ${pairCandidatesHtml(ind, list)}
+        </div>`;
+}
+
+function recFieldsHtml(ind, list) {
+    const date = `<label>日付 <input type="date" id="rec_d" value="${todayStr()}"></label>`;
+    const note = `<input type="text" id="rec_note" maxlength="100" placeholder="ひとことメモ（任意）">`;
+    const btn = `<button class="my-btn primary" onclick="addRecord('${ind.id}')">記録する</button>`;
+    let f = '';
+    if (myRecType === 'weight') {
+        const last = individualStatus(ind).lastW;
+        f = `<label><input type="number" id="rec_g" step="0.1" min="0" max="999" inputmode="decimal" placeholder="${last ? last.g : '0.0'}"> g</label>`;
+    } else if (myRecType === 'feed') {
+        const lastFood = (logsOf(ind, 'feed').filter(l => l.food).slice(-1)[0] || {}).food;
+        f = `<select id="rec_food">${FOODS.map(x => `<option${x === lastFood ? ' selected' : ''}>${x}</option>`).join('')}</select>
+            <label><input type="number" id="rec_n" min="0" max="99" inputmode="numeric" placeholder="数" style="width:64px"> 匹・個</label>
+            <label><input type="checkbox" id="rec_sup"> サプリ（カルシウム等）</label>
+            <label><input type="checkbox" id="rec_ng"> 食べなかった</label>`;
+    } else if (myRecType === 'shed') {
+        f = `<label><input type="checkbox" id="rec_bad"> 脱皮不全あり（指先・尾先に皮が残った等）</label>`;
+    } else if (myRecType === 'mating') {
+        const partners = list.filter(x => x.id !== ind.id && x.status === 'active' && x.sex !== ind.sex);
+        f = partners.length
+            ? `<select id="rec_partner">${partners.map(x => `<option value="${x.id}">${escapeHtml(displayName(x))}</option>`).join('')}</select>`
+            : '<span class="my-hint">相手（逆の性別の子）が登録されていません。</span>';
+    } else if (myRecType === 'lay') {
+        f = `<label><input type="number" id="rec_n" min="0" max="9" inputmode="numeric" style="width:64px"> 個</label>`;
+    }
+    return date + f + note + btn;
+}
+function setRecType(t) { myRecType = t; renderMyDetail(); }
+
+function addRecord(id) {
+    const val = elId => { const el = document.getElementById(elId); return el ? el.value : ''; };
+    const checked = elId => { const el = document.getElementById(elId); return !!(el && el.checked); };
+    const d = val('rec_d') || todayStr();
+    const log = { id: newId('l'), d, t: myRecType };
+    const note = val('rec_note').trim();
+    if (note) log.note = note;
+    if (myRecType === 'weight') {
+        const g = parseFloat(val('rec_g'));
+        if (!(g > 0 && g < 1000)) { alert('体重を数字（g）で入れてください'); return; }
+        log.g = Math.round(g * 10) / 10;
+    } else if (myRecType === 'feed') {
+        log.food = val('rec_food');
+        const n = parseInt(val('rec_n'), 10);
+        if (n > 0) log.n = n;
+        if (checked('rec_sup')) log.sup = true;
+        if (checked('rec_ng')) log.ng = true;
+    } else if (myRecType === 'shed') {
+        if (checked('rec_bad')) log.bad = true;
+    } else if (myRecType === 'mating') {
+        log.partner = val('rec_partner');
+        if (!log.partner) return;
+    } else if (myRecType === 'lay') {
+        const n = parseInt(val('rec_n'), 10);
+        if (n >= 0) log.n = n;
+    } else if (myRecType === 'note') {
+        if (!note) { alert('メモを入れてください'); return; }
+    }
+    const ok = updateIndividual(id, (ind, list) => {
+        if (myRecType === 'weight') ind.logs = ind.logs.filter(l => !(l.t === 'weight' && l.d === d));   // 同じ日の体重は上書き
+        ind.logs.push(log);
+        // 交配は相手側にも同じ記録を残す
+        if (myRecType === 'mating') {
+            const p = list.find(x => x.id === log.partner);
+            if (p) p.logs.push(Object.assign({}, log, { id: newId('l'), partner: ind.id }));
+        }
+    });
+    if (ok) {
+        renderMyTab();
+        if (typeof gtag === 'function') gtag('event', 'my_log_' + myRecType);
+    }
+}
+function deleteLog(id, logId) {
+    if (!confirm('この記録を消します。よろしいですか？')) return;
+    if (updateIndividual(id, ind => { ind.logs = ind.logs.filter(l => l.id !== logId); })) renderMyTab();
+}
+
+function logText(l, list) {
+    const parts = [];
+    if (l.t === 'weight') parts.push(`<strong>${l.g}g</strong>`);
+    if (l.t === 'feed') parts.push([l.food, l.n ? l.n + '匹・個' : '', l.sup ? 'サプリ' : '', l.ng ? '<span class="pair-warn">食べなかった</span>' : ''].filter(Boolean).join('・'));
+    if (l.t === 'shed' && l.bad) parts.push('<span class="pair-warn">脱皮不全あり</span>');
+    if (l.t === 'mating') { const p = list.find(x => x.id === l.partner); parts.push('相手: ' + (p ? escapeHtml(displayName(p)) : '（削除済み）')); }
+    if (l.t === 'lay' && l.n !== undefined) parts.push(`${l.n}個`);
+    if (l.note) parts.push(escapeHtml(l.note));
+    return parts.join(' ');
+}
+function logTableHtml(ind, list) {
+    const logs = logsOf(ind, myLogFilter).reverse();
+    if (logs.length === 0) return '<p class="my-hint">まだ記録がありません。</p>';
+    const LIMIT = 30;
+    const shown = myLogShowAll ? logs : logs.slice(0, LIMIT);
+    return `<table class="log-table">${shown.map(l => `<tr>
+            <td>${l.d}</td>
+            <td>${LOG_TYPES[l.t] ? LOG_TYPES[l.t].icon + ' ' + LOG_TYPES[l.t].label : escapeHtml(l.t)}　${logText(l, list)}</td>
+            <td><button class="log-del" title="この記録を消す" onclick="deleteLog('${ind.id}','${l.id}')">×</button></td>
+        </tr>`).join('')}</table>
+        ${logs.length > LIMIT && !myLogShowAll ? `<button class="my-btn small" style="margin-top:8px" onclick="myLogShowAll = true; renderMyDetail();">残り${logs.length - LIMIT}件も見る</button>` : ''}`;
+}
+
+// ---------- 体重グラフ ----------
+function weightSectionHtml(ind) {
+    const ws = logsOf(ind, 'weight');
+    if (ws.length === 0) return '<p class="my-hint">「記録する」で体重を入れると、ここにグラフが出ます。0.1g単位で量れるはかりがあると変化に気づきやすくなります。</p>';
+    const last = ws[ws.length - 1];
+    const ago = new Date(new Date(last.d).getTime() - 30 * 86400000).toISOString().slice(0, 10);
+    const base = ws.filter(w => w.d <= ago).slice(-1)[0];
+    const diff = base ? Math.round((last.g - base.g) * 10) / 10 : null;
+    const max = ws.reduce((m, w) => (w.g > m.g ? w : m), ws[0]);
+    const stats = `<div class="my-stats">
+        <div>最新（${last.d}）<strong>${last.g}g</strong></div>
+        <div>30日前と比べて<strong>${diff === null ? '—' : (diff > 0 ? '+' : '') + diff + 'g'}</strong></div>
+        <div>いちばん重かった時<strong>${max.g}g</strong></div>
+        <div>記録<strong>${ws.length}回</strong></div>
+    </div>`;
+    return stats + weightChartSvg(ws);
+}
+function weightChartSvg(ws) {
+    if (ws.length < 2) return '<p class="my-hint">2回以上記録するとグラフになります。</p>';
+    const W = 640, H = 220, L = 44, R = 14, T = 14, B = 28;
+    const t = ws.map(w => new Date(w.d).getTime());
+    const t0 = t[0], t1 = Math.max(t[t.length - 1], t0 + 86400000);
+    const gs = ws.map(w => w.g);
+    let gMin = Math.min(...gs), gMax = Math.max(...gs);
+    const pad = Math.max((gMax - gMin) * 0.15, 1);
+    gMin = Math.max(0, Math.floor(gMin - pad)); gMax = Math.ceil(gMax + pad);
+    const x = v => L + (v - t0) / (t1 - t0) * (W - L - R);
+    const y = g => T + (gMax - g) / (gMax - gMin) * (H - T - B);
+    const pts = ws.map((w, i) => `${x(t[i]).toFixed(1)},${y(w.g).toFixed(1)}`).join(' ');
+    let grid = '';
+    for (let i = 0; i <= 4; i++) {
+        const g = gMin + (gMax - gMin) * i / 4;
+        grid += `<line x1="${L}" x2="${W - R}" y1="${y(g)}" y2="${y(g)}" stroke="#ece9e1"/>
+            <text x="${L - 6}" y="${y(g) + 4}" text-anchor="end" font-size="11" fill="#8a7c6d">${Math.round(g * 10) / 10}</text>`;
+    }
+    const md = d => d.slice(5).replace('-', '/');
+    const xLabels = [0, Math.floor((ws.length - 1) / 2), ws.length - 1].filter((v, i, a) => a.indexOf(v) === i)
+        .map(i => `<text x="${x(t[i])}" y="${H - 8}" text-anchor="middle" font-size="11" fill="#8a7c6d">${md(ws[i].d)}</text>`).join('');
+    const dots = ws.length <= 60 ? ws.map((w, i) => `<circle cx="${x(t[i]).toFixed(1)}" cy="${y(w.g).toFixed(1)}" r="3.5" fill="#9c7650"><title>${w.d} ${w.g}g</title></circle>`).join('') : '';
+    return `<svg class="wchart" viewBox="0 0 ${W} ${H}" role="img" aria-label="体重の推移グラフ">
+        ${grid}<text x="${L}" y="10" font-size="10" fill="#8a7c6d">g</text>
+        <polyline points="${pts}" fill="none" stroke="#5c4636" stroke-width="2.5" stroke-linejoin="round"/>
+        ${dots}${xLabels}
+    </svg>`;
+}
+
+// ---------- ペア候補 ----------
+function pairWarnings(m, f) {
+    const mg = m.genes || {}, fg = f.genes || {};
+    const w = [];
+    if (mg.Whiteout === 'het' && fg.Whiteout === 'het') w.push('ホワイトアウト同士（25%が致死）');
+    const homo = k => fg[k] === 'homo';
+    if (['Caramel', 'Snow', 'Albino', 'Albio', 'GoldHaze'].some(homo)) w.push('メスがキャラメル表現（無精卵が多い傾向）');
+    if (['Ghost', 'PurpleHaze', 'GoldHaze'].some(homo)) w.push('メスがゴースト表現（無精卵が多い傾向）');
+    const parentsOf = x => [x.sireId, x.damId].filter(Boolean);
+    if (parentsOf(f).includes(m.id) || parentsOf(m).includes(f.id)) w.push('親子');
+    else if (parentsOf(m).some(p => parentsOf(f).includes(p))) w.push('きょうだい');
+    return w;
+}
+function pairCandidatesHtml(ind, list) {
+    if (ind.sex === 'unknown') return '<p class="my-hint">性別を登録すると、相手の候補ごとに生まれる子の予測が出ます。</p>';
+    const others = list.filter(x => x.id !== ind.id && x.status === 'active' && x.sex !== ind.sex);
+    if (others.length === 0) return '<p class="my-hint">逆の性別の子（飼育中）を登録すると、ここに候補が並びます。</p>';
+    const rows = others.map(o => {
+        const [m, f] = ind.sex === 'male' ? [ind, o] : [o, ind];
+        const res = calculateOffspring(getParentDataFromObject(m.genes || {}), getParentDataFromObject(f.genes || {}));
+        return { o, m, f, res, warn: pairWarnings(m, f) };
+    }).sort((a, b) => a.warn.length - b.warn.length || (a.o.code || a.o.name).localeCompare(b.o.code || b.o.name, 'ja', { numeric: true }));
+    return `<p class="my-hint">モルフを登録した情報だけで計算した予測です。上位3つを表示しています。</p>` + rows.map(({ o, m, f, res, warn }) => `
+        <div class="pair-row">
+            <div class="pair-row-main">
+                <strong>${escapeHtml(displayName(o))}</strong> ${sexLabel(o.sex)}　<span class="pair-out">${escapeHtml(getMorphLabelFromParam(o.genes || {}))}</span><br>
+                <span class="pair-out">→ ${res.slice(0, 3).map(r => `<strong>${Math.round(r.percentage)}%</strong> ${escapeHtml(r.morphName)}`).join(' ／ ')}${res.length > 3 ? ` ほか${res.length - 3}通り` : ''}</span>
+                ${warn.length ? `<br><span class="pair-warn">⚠️ ${warn.join('・')}</span>` : ''}
+            </div>
+            <button class="my-btn small primary" onclick="pairCalc('${m.id}','${f.id}')">くわしく計算</button>
+        </div>`).join('');
+}
+
+// ---------- 登録・編集 ----------
+function buildMorphSelects(containerId, prefix) {
+    const box = document.getElementById(containerId);
+    if (!box || box.dataset.built) return;
+    box.innerHTML = Object.keys(UI_CONFIG).map(key => {
+        const item = UI_CONFIG[key];
+        return `<div class="form-group">
+            <label>${item.name}</label>
+            <select id="${prefix}_${key}" onchange="updateSelectColor(this)">
+                <option value="none">選択しない</option>
+                ${item.options.map(o => `<option value="${o[0]}">${o[1]}</option>`).join('')}
+            </select>
+        </div>`;
+    }).join('');
+    box.dataset.built = '1';
+}
+function parentOptions(list, selfId, sex, current) {
+    return '<option value="">（なし・わからない）</option>' + list
+        .filter(x => x.id !== selfId && (x.sex === sex || x.sex === 'unknown'))
+        .map(x => `<option value="${x.id}"${x.id === current ? ' selected' : ''}>${escapeHtml(displayName(x))}</option>`).join('');
+}
+function openIndividualForm(id) {
+    buildMorphSelects('ind-morph-inputs', 'ind');
+    const list = loadIndividuals();
+    const ind = id ? list.find(x => x.id === id) : null;
+    myEditingId = ind ? ind.id : null;
+    const v = (k, d) => (ind && ind[k]) || d || '';
+    document.getElementById('my-form-title').innerText = ind ? `「${ind.name}」を編集` : '個体を登録';
+    ['name', 'code', 'hatch', 'acquired', 'source', 'cage', 'memo'].forEach(k => { document.getElementById('ind_' + k).value = v(k); });
+    document.getElementById('ind_sex').value = v('sex', 'male');
+    document.getElementById('ind_status').value = v('status', 'active');
+    document.getElementById('ind_sire').innerHTML = parentOptions(list, myEditingId, 'male', v('sireId'));
+    document.getElementById('ind_dam').innerHTML = parentOptions(list, myEditingId, 'female', v('damId'));
+    for (const key in UI_CONFIG) {
+        const el = document.getElementById(`ind_${key}`);
+        el.value = (ind && ind.genes && ind.genes[key]) || 'none';
+        updateSelectColor(el);
+    }
+    document.getElementById('my-form').classList.add('open');
+    document.getElementById('ind_name').focus();
+}
+function closeIndividualForm() { document.getElementById('my-form').classList.remove('open'); myEditingId = null; }
+
+function saveIndividual() {
+    const get = k => document.getElementById('ind_' + k).value.trim();
+    const name = get('name');
+    if (!name) { alert('名前を入れてください'); return; }
+    const genes = {};
+    for (const key in UI_CONFIG) {
+        const v = document.getElementById(`ind_${key}`).value;
+        if (v !== 'none') genes[key] = v;
+    }
+    const fields = { name, genes };
+    ['code', 'sex', 'status', 'hatch', 'acquired', 'source', 'cage', 'memo'].forEach(k => { fields[k] = get(k); });
+    fields.sireId = get('sire');
+    fields.damId = get('dam');
+    const list = loadIndividuals();
+    const editing = myEditingId;
+    if (editing) {
+        const i = list.findIndex(x => x.id === editing);
+        if (i >= 0) list[i] = Object.assign({}, list[i], fields);
+    } else {
+        const ind = Object.assign({ id: newId('i'), logs: [], created: todayStr() }, fields);
+        list.push(ind);
+        mySelectedId = ind.id;
+    }
+    if (saveIndividuals(list)) {
+        closeIndividualForm();
+        if (!editing) document.getElementById('my-layout').classList.add('show-detail');
+        renderMyTab();
+        if (typeof gtag === 'function') gtag('event', editing ? 'my_edit' : 'my_register', { my_count: list.length });
+    }
+}
+function deleteIndividual(id) {
+    const list = loadIndividuals();
+    const ind = list.find(x => x.id === id);
+    if (!ind || !confirm(`「${ind.name}」の登録と記録をすべて消します。\n（手放した・お星さまになった子は「編集」で状態を変えると、記録を残せます）\nよろしいですか？`)) return;
+    const rest = list.filter(x => x.id !== id);
+    rest.forEach(x => { if (x.sireId === id) x.sireId = ''; if (x.damId === id) x.damId = ''; });
+    saveIndividuals(rest);
+    mySelectedId = null;
+    renderMyTab();
+}
+
+// ---------- まとめて記録 ----------
+function openBulk() {
+    if (loadIndividuals().filter(x => x.status === 'active').length === 0) { alert('飼育中の子が登録されていません。'); return; }
+    document.getElementById('bulk_date').value = todayStr();
+    renderBulkRows();
+    document.getElementById('my-bulk').classList.add('open');
+}
+function closeBulk() { document.getElementById('my-bulk').classList.remove('open'); }
+function renderBulkRows() {
+    const type = document.getElementById('bulk_type').value;
+    const list = loadIndividuals().filter(x => x.status === 'active')
+        .sort((a, b) => (a.code || '￿').localeCompare(b.code || '￿', 'ja', { numeric: true }) || a.name.localeCompare(b.name, 'ja'));
+    document.getElementById('bulk_feed_opts').innerHTML = type === 'feed'
+        ? `<select id="bulk_food">${FOODS.map(x => `<option>${x}</option>`).join('')}</select> <label><input type="checkbox" id="bulk_sup"> サプリ</label>`
+        : '';
+    document.getElementById('bulk_hint').innerText = type === 'weight'
+        ? '量った子だけ数字を入れてください（空欄の子は記録しません）。'
+        : '記録する子にチェックを入れてください。';
+    document.getElementById('bulk_thead').innerHTML = type === 'weight'
+        ? '<tr><th>名前</th><th>前回</th><th>今回（g）</th></tr>'
+        : `<tr><th><input type="checkbox" onchange="document.querySelectorAll('.bulk-chk').forEach(c => c.checked = this.checked)" aria-label="すべて選ぶ"></th><th>名前</th><th>前回の${LOG_TYPES[type].label}</th></tr>`;
+    document.getElementById('bulk_rows').innerHTML = list.map(ind => {
+        const last = logsOf(ind, type).slice(-1)[0];
+        const name = `${escapeHtml(displayName(ind))} ${sexLabel(ind.sex)}${ind.cage ? ` <span class="pair-out">${escapeHtml(ind.cage)}</span>` : ''}`;
+        return type === 'weight'
+            ? `<tr><td>${name}</td><td class="pair-out">${last ? `${last.g}g（${last.d.slice(5)}）` : '—'}</td>
+                <td><input type="number" class="bulk-g" data-id="${ind.id}" step="0.1" min="0" inputmode="decimal"></td></tr>`
+            : `<tr><td><input type="checkbox" class="bulk-chk" data-id="${ind.id}"></td><td>${name}</td>
+                <td class="pair-out">${last ? last.d : '—'}</td></tr>`;
+    }).join('');
+}
+function saveBulk() {
+    const type = document.getElementById('bulk_type').value;
+    const d = document.getElementById('bulk_date').value || todayStr();
+    const entries = {};
+    if (type === 'weight') {
+        document.querySelectorAll('.bulk-g').forEach(el => {
+            const g = parseFloat(el.value);
+            if (g > 0 && g < 1000) entries[el.dataset.id] = { g: Math.round(g * 10) / 10 };
+        });
+    } else {
+        document.querySelectorAll('.bulk-chk:checked').forEach(el => {
+            const e = {};
+            if (type === 'feed') {
+                e.food = document.getElementById('bulk_food').value;
+                if (document.getElementById('bulk_sup').checked) e.sup = true;
+            }
+            entries[el.dataset.id] = e;
+        });
+    }
+    const ids = Object.keys(entries);
+    if (ids.length === 0) { alert(type === 'weight' ? '体重が1匹も入っていません。' : '1匹もチェックされていません。'); return; }
+    const list = loadIndividuals();
+    list.filter(x => entries[x.id]).forEach(ind => {
+        if (type === 'weight') ind.logs = ind.logs.filter(l => !(l.t === 'weight' && l.d === d));
+        ind.logs.push(Object.assign({ id: newId('l'), d, t: type }, entries[ind.id]));
+    });
+    if (saveIndividuals(list)) {
+        closeBulk();
+        renderMyTab();
+        alert(`${ids.length}匹分の${LOG_TYPES[type].label}を記録しました。`);
+        if (typeof gtag === 'function') gtag('event', 'my_bulk_' + type, { my_count: ids.length });
+    }
+}
+
+// 通常ブリード計算の親パネルに「うちの子から選ぶ」を出す
+function renderParentPickers(list) {
+    list = (list || loadIndividuals()).filter(x => x.status === 'active');
+    [['pick-p1', 'p1', x => x.sex !== 'female'], ['pick-p2', 'p2', x => x.sex !== 'male']].forEach(([boxId, prefix, filter]) => {
+        const box = document.getElementById(boxId);
+        if (!box) return;
+        const cands = list.filter(filter);
+        box.innerHTML = cands.length === 0 ? '' :
+            `<select onchange="applyIndividualToParent('${prefix}', this.value); this.selectedIndex = 0;">
+                <option value="">🦎 うちの子から選ぶ</option>
+                ${cands.map(x => `<option value="${x.id}">${escapeHtml(displayName(x))}（${escapeHtml(getMorphLabelFromParam(x.genes || {}))}）</option>`).join('')}
+            </select>`;
+    });
+}
+function applyIndividualToParent(prefix, id) {
+    const ind = loadIndividuals().find(x => x.id === id);
+    if (!ind) return;
+    for (const key in UI_CONFIG) {
+        const el = document.getElementById(`${prefix}_${key}`);
+        if (!el) continue;
+        el.value = (ind.genes && ind.genes[key]) || 'none';
+        updateSelectColor(el);
+    }
+    runCalculation();
+    updateUrlParams();
+}
+function pairCalc(maleId, femaleId) {
+    switchTab('normal-tab');
+    applyIndividualToParent('p1', maleId);
+    applyIndividualToParent('p2', femaleId);
+    document.getElementById('results-cards-container').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (typeof gtag === 'function') gtag('event', 'my_pair_calc');
+}
+
+function exportBackup() {
+    const data = { app: 'nishiafu-palette', version: 2, exportedAt: new Date().toISOString(), individuals: loadIndividuals() };
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = `nishiafu-backup-${todayStr()}.json`;
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+    try { localStorage.setItem(MY_BACKUP_KEY, todayStr()); } catch (e) {}
+    renderBackupWarn(loadIndividuals());
+}
+function importBackup(input) {
+    const file = input.files && input.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+        try {
+            const data = JSON.parse(reader.result);
+            const incoming = Array.isArray(data) ? data : data.individuals;
+            if (!Array.isArray(incoming)) throw new Error('形式が違います');
+            const valid = incoming.filter(x => x && typeof x.id === 'string' && typeof x.name === 'string').map(normalizeIndividual);
+            const map = new Map(loadIndividuals().map(x => [x.id, x]));
+            valid.forEach(x => map.set(x.id, x));
+            if (saveIndividuals(Array.from(map.values()))) {
+                alert(`${valid.length}匹分の記録を読み込みました（同じ子はファイルの内容で上書きしました）。`);
+                renderMyTab();
+            }
+        } catch (e) {
+            alert('このファイルは読み込めませんでした（ニシアフ・パレットのバックアップファイルを選んでください）。');
+        }
+        input.value = '';
+    };
+    reader.readAsText(file);
+}
+
+// ==========================================
+// 【広告枠】
+// AdSenseの審査が通ったら、管理画面で「ディスプレイ広告」ユニットを作り、その data-ad-slot の番号を AD_SLOTS に入れる。
+// 番号が空の枠は、ニシアフページと同じ楽天リンク（飼育用品）を出す。
+// 記録ボタンのすぐ近くには置かない（押し間違いのクリックはAdSenseの規約違反になる）。
+// ==========================================
+const AD_CLIENT = 'ca-pub-2088540998125526';
+const AD_SLOTS = { calc: '', reverse: '', my: '' };
+const PR_ITEMS = [
+    { icon: '🍽️', name: '専用フード', text: 'コオロギを切らした日の保険に。人工フードは保存がききます。', url: 'https://hb.afl.rakuten.co.jp/ichiba/5399b878.5aee4ea1.5399b879.60daf94b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fecologgie%2Fleo030%2F&link_type=hybrid_url' },
+    { icon: '🔥', name: 'パネルヒーター', text: '冬の拒食は温度不足が原因のことも。ケージの底面の一部に敷きます。', url: 'https://hb.afl.rakuten.co.jp/ichiba/5399b5a7.1151635b.5399b5a8.091ef622/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frayon%2F5164%2F&link_type=hybrid_url' },
+    { icon: '🌡️', name: '温湿度計', text: '乾燥は脱皮不全の原因に。ニシアフはレオパより高めの湿度を好みます。', url: 'https://hb.afl.rakuten.co.jp/ichiba/5399b5a7.1151635b.5399b5a8.091ef622/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frayon%2F25541%2F&link_type=hybrid_url' }
+];
+function renderAdSlots() {
+    document.querySelectorAll('.ad-slot').forEach(box => {
+        const tab = box.closest('.tab-content');
+        if (box.dataset.done || (tab && !tab.classList.contains('active'))) return;   // 隠れているタブの枠は、表示されたときに入れる（幅0だと広告が出ない）
+        const slot = AD_SLOTS[box.dataset.ad];
+        if (slot) {
+            box.innerHTML = `<div class="ad-label">広告</div><ins class="adsbygoogle" style="display:block" data-ad-client="${AD_CLIENT}" data-ad-slot="${slot}" data-ad-format="auto" data-full-width-responsive="true"></ins>`;
+            try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
+        } else {
+            box.innerHTML = `<div class="ad-label">PR（楽天市場）</div><div class="pr-items">${PR_ITEMS.map(p =>
+                `<a class="pr-item" href="${p.url}" target="_blank" rel="noopener sponsored" onclick="if (typeof gtag === 'function') gtag('event', 'pr_click', { item: '${p.name}', slot: '${box.dataset.ad}' })"><strong>${p.icon} ${p.name}</strong>${p.text}</a>`
+            ).join('')}</div>`;
+        }
+        box.dataset.done = '1';
+    });
+}
+
+// ホーム画面への追加（PWA）
+let deferredInstallPrompt = null;
+window.addEventListener('beforeinstallprompt', e => {
+    e.preventDefault();
+    deferredInstallPrompt = e;
+    const btn = document.getElementById('install-btn');
+    if (btn) btn.style.display = 'inline-flex';
+});
+function installApp() {
+    if (!deferredInstallPrompt) return;
+    deferredInstallPrompt.prompt();
+    deferredInstallPrompt.userChoice.finally(() => { deferredInstallPrompt = null; document.getElementById('install-btn').style.display = 'none'; });
+}
+if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) {
+    const box = document.getElementById('install-box');
+    if (box) box.style.display = 'none';
+}
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => { navigator.serviceWorker.register('sw.js').catch(() => {}); });
+}
+if (navigator.storage && navigator.storage.persist) { navigator.storage.persist().catch(() => {}); }
+
+// ==========================================
 // 【初期化・リセット】
 // ==========================================
 function resetAll() {
@@ -868,7 +1838,9 @@ function resetAll() {
 }
 
 createSelectors();
+renderParentPickers();
 restoreFromUrlParams();
+renderAdSlots();
 </script>
 </body>
 </html>
