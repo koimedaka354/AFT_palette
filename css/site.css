@@ -35,7 +35,7 @@ body {
     overflow-x: hidden;
 }
 a { color: var(--rose); }
-img { max-width: 100%; display: block; }
+img { max-width: 100%; height: auto; display: block; }
 :focus-visible { outline: 3px solid var(--rose); outline-offset: 2px; }
 
 .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
@@ -266,7 +266,7 @@ a.topics-item::after { content: "→"; color: var(--rose); font-weight: 700; }
 .aquarium .bubble.b2 { left: 62%; width: 8px; height: 8px; animation-delay: -2.5s; animation-duration: 6s; }
 .aquarium .bubble.b3 { left: 40%; width: 10px; height: 10px; animation-delay: -4.5s; animation-duration: 8s; }
 .aquarium .bubble.b1 { left: 72%; }
-.aquarium .chan { position: absolute; right: 13%; bottom: 9%; width: 40%; filter: drop-shadow(0 8px 12px rgba(46, 36, 32, 0.18)); animation: bob 4s ease-in-out infinite; }
+.aquarium .chan { position: absolute; right: 7%; bottom: 7%; width: 52%; filter: drop-shadow(0 8px 12px rgba(46, 36, 32, 0.18)); animation: bob 4s ease-in-out infinite; }
 @keyframes swim {
     0% { left: -25%; transform: scaleX(1) translateY(0); }
     45% { left: 100%; transform: scaleX(1) translateY(-10px); }
@@ -289,10 +289,10 @@ a.topics-item::after { content: "→"; color: var(--rose); font-weight: 700; }
 
 .services { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
 .service { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; text-decoration: none; color: var(--ink); box-shadow: var(--shadow-soft); transition: transform 0.25s, box-shadow 0.25s; }
-.service:hover { transform: translateY(-6px) rotate(-0.5deg); box-shadow: var(--shadow-hover); }
-.service .pic { aspect-ratio: 1 / 1; display: flex; align-items: center; justify-content: center; padding: 12px; }
-.service .pic img { max-height: 100%; object-fit: contain; transition: transform 0.35s; }
-.service:hover .pic img { transform: rotate(-5deg) scale(1.05); }
+.service:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); }
+.service .pic { aspect-ratio: 1 / 1; display: flex; align-items: center; justify-content: center; padding: 14px; }
+.service .pic img { width: 100%; height: 100%; object-fit: contain; transition: transform 0.35s; }
+.service:hover .pic img { transform: scale(1.05); }
 .service:nth-child(1) .pic { background: var(--blush); }
 .service:nth-child(2) .pic { background: var(--mint-tint); }
 .service:nth-child(3) .pic { background: var(--honey-tint); }
