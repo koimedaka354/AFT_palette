@@ -15,11 +15,11 @@
     <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="https://koimedaka354.github.io/AFT_palette/nishiafu/palette.html">
     <style>
-        body { font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif; background-color: #f5f4ec; color: #3d2e24; margin: 0; padding: 20px 15px; }
-        .container { max-width: 1200px; margin: 0 auto; background: #fff; padding: 25px; border-radius: 16px; box-shadow: 0 4px 20px rgba(92, 70, 54, 0.05); }
+        body { font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif; background-color: #FBF6EE; color: #3d2e24; margin: 0; padding: 0; }
+        .container { box-sizing: border-box; width: calc(100% - 30px); max-width: 1200px; margin: 24px auto; background: #fff; padding: 25px; border-radius: 16px; box-shadow: 0 4px 20px rgba(92, 70, 54, 0.05); }
 
         /* パンくずナビ */
-        .site-breadcrumb { max-width: 1200px; margin: 0 auto 12px; font-size: 12px; color: #8a7c6d; }
+        .site-breadcrumb { max-width: 1200px; margin: 0 auto 12px; font-size: 12px; color: #6b5f53; }
         .site-breadcrumb a { color: #9c7650; text-decoration: none; font-weight: bold; }
         .site-breadcrumb a:hover { text-decoration: underline; }
         .site-breadcrumb span { margin: 0 4px; }
@@ -52,7 +52,7 @@
 
         /* タブシステム */
         .tabs-container { display: flex; gap: 10px; margin-bottom: 25px; border-bottom: 2px solid #e6e3da; padding-bottom: 2px; }
-        .tab-btn { background: #edebe4; color: #706a61; border: none; padding: 12px 24px; border-radius: 8px 8px 0 0; font-size: 14px; font-weight: bold; cursor: pointer; transition: all 0.2s; margin-bottom: -2px; border: 2px solid transparent; border-bottom: none; }
+        .tab-btn { background: #edebe4; color: #5B4D43; border: none; padding: 12px 24px; border-radius: 8px 8px 0 0; font-size: 14px; font-weight: bold; cursor: pointer; transition: all 0.2s; margin-bottom: -2px; border: 2px solid transparent; border-bottom: none; }
         .tab-btn.active { background: #fff; color: #5c4636; border-color: #e6e3da; border-bottom: 2px solid #fff; position: relative; z-index: 2; }
         .tab-content { display: none; }
         .tab-content.active { display: block; }
@@ -130,7 +130,7 @@
         .my-summary { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 16px; font-size: 13px; }
         .my-chip { background: #faf9f5; border: 1px solid #e1ded6; border-radius: 999px; padding: 5px 12px; }
         .my-chip.warn { background: #fff5f0; border-color: #f3c9b5; color: #9a3b12; cursor: pointer; font-weight: bold; }
-        .my-chip.muted { color: #8a7c6d; }
+        .my-chip.muted { color: #6b5f53; }
 
         .my-layout { display: grid; grid-template-columns: minmax(320px, 400px) 1fr; gap: 20px; align-items: start; }
         .my-list-pane { border: 1px solid #dbd7cb; border-radius: 12px; background: #fff; overflow: hidden; position: sticky; top: 12px; }
@@ -139,14 +139,14 @@
         .my-filter-row { display: flex; gap: 6px; }
         .my-filter-row select { flex: 1; min-width: 0; font-size: 13px; padding: 7px 6px; }
         .my-list { max-height: calc(100vh - 200px); overflow-y: auto; }
-        .my-count { padding: 6px 12px; font-size: 11.5px; color: #8a7c6d; border-bottom: 1px solid #edebe4; }
+        .my-count { padding: 6px 12px; font-size: 11.5px; color: #6b5f53; border-bottom: 1px solid #edebe4; }
         .my-row { display: flex; gap: 10px; align-items: center; padding: 10px 12px; border-bottom: 1px solid #edebe4; cursor: pointer; }
         .my-row:hover { background: #fdfaf2; }
         .my-row.active { background: #f3ebd4; box-shadow: inset 4px 0 0 #9c7650; }
         .my-row img { width: 52px; height: 52px; border-radius: 8px; object-fit: cover; flex-shrink: 0; background: #edebe4; }
         .my-row-main { flex: 1; min-width: 0; }
         .my-row-name { font-weight: bold; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .my-row-name small { font-weight: normal; color: #8a7c6d; margin-right: 4px; }
+        .my-row-name small { font-weight: normal; color: #6b5f53; margin-right: 4px; }
         .my-row-sub { font-size: 11.5px; color: #706a61; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 2px; }
         .my-row-side { text-align: right; font-size: 12px; color: #706a61; flex-shrink: 0; line-height: 1.6; }
         .my-row-side strong { color: #3d2e24; font-size: 13px; }
@@ -163,9 +163,9 @@
         .my-section { margin-top: 24px; }
         .my-section h4 { font-size: 14px; color: #5c4636; margin: 0 0 10px; border-left: 4px solid #9c7650; padding-left: 8px; }
         .my-profile { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px 16px; font-size: 13px; margin-top: 16px; }
-        .my-profile span { display: block; font-size: 11px; color: #8a7c6d; }
+        .my-profile span { display: block; font-size: 11px; color: #6b5f53; }
         .my-profile a { color: #9c7650; font-weight: bold; cursor: pointer; }
-        .my-hint { font-size: 12px; color: #8a7c6d; margin: 6px 0; line-height: 1.7; }
+        .my-hint { font-size: 12px; color: #6b5f53; margin: 6px 0; line-height: 1.7; }
 
         .rec-box { background: #faf9f5; border: 1px solid #e1ded6; border-radius: 10px; padding: 14px; }
         .rec-types { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
@@ -184,7 +184,7 @@
         .log-table td { padding: 7px 6px; border-bottom: 1px solid #edebe4; vertical-align: top; }
         .log-table td:first-child { white-space: nowrap; color: #706a61; width: 1%; }
         .log-table td:last-child { width: 1%; }
-        .log-del { background: none; border: none; color: #b0a89c; cursor: pointer; font-size: 14px; padding: 0 4px; }
+        .log-del { background: none; border: none; color: #8c7b6e; cursor: pointer; font-size: 14px; padding: 0 4px; }
         .log-del:hover { color: #c9302c; }
 
         .pair-row { display: flex; gap: 10px; align-items: center; padding: 10px 0; border-bottom: 1px solid #edebe4; font-size: 13px; flex-wrap: wrap; }
@@ -217,7 +217,7 @@
         /* 広告枠（AdSenseの広告ユニット、未設定の間は飼育用品の楽天リンク） */
         .ad-slot { margin: 32px 0 0; }
         .ad-slot:empty { display: none; }
-        .ad-label { font-size: 11px; color: #8a7c6d; margin-bottom: 6px; }
+        .ad-label { font-size: 11px; color: #6b5f53; margin-bottom: 6px; }
         .pr-items { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
         .pr-item { display: block; padding: 12px 14px; border: 1px solid #f3dcc2; background: #fff8ef; border-radius: 10px; text-decoration: none; color: #5c4636; font-size: 13px; line-height: 1.6; }
         .pr-item strong { display: block; font-size: 14px; }
@@ -241,8 +241,7 @@
 
         /* スマートフォン向けレイアウト */
         @media (max-width: 768px) {
-            body { padding: 10px; }
-            .container { padding: 15px; border-radius: 12px; }
+            .container { width: calc(100% - 16px); margin: 12px auto; padding: 15px; border-radius: 12px; }
             .header-box { flex-direction: column; align-items: flex-start; gap: 12px; }
             h1 { font-size: 22px; }
             .tabs-container { width: 100%; }
@@ -277,12 +276,26 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="ニシアフ・パレット">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/chrome.css">
 </head>
 <body>
 
-<div class="site-breadcrumb">
-    <a href="../">🌿 いきもの日和</a><span>/</span><a href="./">ニシアフリカトカゲモドキ</a><span>/</span>モルフ計算ツール
-</div>
+<a class="skip-link" href="#main">本文へ移動</a>
+    <header class="site-header">
+        <div class="sh-inner">
+            <a class="site-logo" href="../"><svg viewBox="0 0 48 32" width="40" height="27" aria-hidden="true" focusable="false"><path d="M4 16c6-9 22-12 32-4l8-6v20l-8-6C26 28 10 25 4 16z" fill="#FF9770"/><path d="M36 12l8-6v20l-8-6z" fill="#F07A4F"/><circle cx="14" cy="14" r="3.2" fill="#2E2420"/><circle cx="15" cy="13" r="1" fill="#fff"/><path d="M20 21c3 1.5 7 1.5 10-1" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" opacity=".8"/></svg><span class="logo-text"><span class="logo-name">いきもの日和</span><span class="logo-en">Ikimono Biyori</span></span></a>
+            <button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false"><span class="nav-toggle-bar" aria-hidden="true"></span><span class="nav-toggle-label">メニュー</span></button>
+            <nav class="site-nav" id="site-nav" aria-label="サイト内メニュー">
+                <ul><li><a href="../about.html">いきもの日和について</a></li><li><a href="../guides.html">飼育ガイド</a></li><li><a href="../medaka/">めだか</a></li><li><a href="../nishiafu/">ニシアフ</a></li><li><a href="../nishiafu/palette.html" aria-current="page">ツール</a></li><li><a href="../stickers/">スタンプ</a></li><li><a href="../rakuten/">楽天メモ</a></li></ul>
+                <a class="nav-cta" href="../about.html#contact">お問い合わせ</a>
+            </nav>
+        </div>
+    </header>
+
+<main id="main">
 
 <div class="container">
     <div class="top-hero">
@@ -465,12 +478,72 @@
         </div>
     </div>
 </div>
+</main>
 
-<footer style="margin: 32px auto 0; max-width: 900px; padding: 20px 16px; text-align: center; font-size: 13px; color: #777; line-height: 1.8;">
-    <p>「いきもの日和」は projectyuruyuru（めだかちゃん）が運営しています。<a href="../about.html">運営者情報・お問い合わせ</a></p>
-    <p>飼育に関する読み物は <a href="https://note.com/projectyuruyuru" target="_blank" rel="noopener">note</a> でも発信しています。</p>
-    <p>SNSでも発信中: <a href="https://www.youtube.com/@projectyuruyuru" target="_blank" rel="noopener">YouTube</a>・<a href="https://www.instagram.com/koimedaka354/" target="_blank" rel="noopener">Instagram</a>・<a href="https://www.tiktok.com/@harunomedaka" target="_blank" rel="noopener">TikTok</a>・<a href="https://www.threads.com/@koimedaka354" target="_blank" rel="noopener">Threads</a>・<a href="https://room.rakuten.co.jp/room_2e33071ec6" target="_blank" rel="noopener">楽天ROOM</a></p>
-</footer>
+    <footer class="site-footer">
+        <svg class="sf-wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0 30 C 240 0 480 60 720 30 S 1200 0 1440 30 V60 H0z" fill="currentColor"/></svg>
+        <div class="sf-inner">
+            <div class="sf-brand">
+                <a class="site-logo sf-logo" href="../"><svg viewBox="0 0 48 32" width="40" height="27" aria-hidden="true" focusable="false"><path d="M4 16c6-9 22-12 32-4l8-6v20l-8-6C26 28 10 25 4 16z" fill="#FF9770"/><path d="M36 12l8-6v20l-8-6z" fill="#F07A4F"/><circle cx="14" cy="14" r="3.2" fill="#2E2420"/><circle cx="15" cy="13" r="1" fill="#fff"/><path d="M20 21c3 1.5 7 1.5 10-1" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" opacity=".8"/></svg><span class="logo-text"><span class="logo-name">いきもの日和</span><span class="logo-en">Ikimono Biyori</span></span></a>
+                <p class="sf-copy">小さな生きものと、ちいさな毎日を。</p>
+                <p>めだかとニシアフリカトカゲモドキを飼っている「めだかちゃん」（projectyuruyuru）が運営しています。</p>
+            </div>
+            <div class="sf-col">
+                <h2>サイトについて</h2>
+                <ul>
+                    <li><a href="../about.html">運営者情報</a></li>
+                    <li><a href="../about.html#contact">お問い合わせ</a></li>
+                    <li><a href="../privacy-policy.html">プライバシーポリシー</a></li>
+                    <li><a href="../terms.html">利用規約</a></li>
+                </ul>
+            </div>
+            <div class="sf-col">
+                <h2>飼育ガイド</h2>
+                <ul>
+                    <li><a href="../guides.html">ガイド一覧</a></li>
+                    <li><a href="../medaka/">めだか</a></li>
+                    <li><a href="../nishiafu/">ニシアフリカトカゲモドキ</a></li>
+                </ul>
+            </div>
+            <div class="sf-col">
+                <h2>コンテンツ</h2>
+                <ul>
+                    <li><a href="../nishiafu/palette.html">ニシアフ・パレット</a></li>
+                    <li><a href="../stickers/">LINEスタンプ</a></li>
+                    <li><a href="../rakuten/">めだかちゃんの楽天メモ</a></li>
+                </ul>
+            </div>
+            <div class="sf-col">
+                <h2>SNS</h2>
+                <ul>
+                    <li><a href="https://note.com/projectyuruyuru" target="_blank" rel="noopener">note</a></li>
+                    <li><a href="https://www.instagram.com/koimedaka354/" target="_blank" rel="noopener">Instagram</a></li>
+                    <li><a href="https://www.threads.com/@koimedaka354" target="_blank" rel="noopener">Threads</a></li>
+                    <li><a href="https://www.youtube.com/@projectyuruyuru" target="_blank" rel="noopener">YouTube</a></li>
+                    <li><a href="https://www.tiktok.com/@harunomedaka" target="_blank" rel="noopener">TikTok</a></li>
+                    <li><a href="https://room.rakuten.co.jp/room_2e33071ec6" target="_blank" rel="noopener">楽天ROOM</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="sf-bottom">
+            <p>本サイトの一部のリンクには広告（楽天アフィリエイト）を含みます。</p>
+            <p>&copy; 2026 いきもの日和 / projectyuruyuru</p>
+        </div>
+    </footer>
+    <script>
+    (function () {
+        var b = document.querySelector('.nav-toggle'), n = document.getElementById('site-nav');
+        if (!b || !n) return;
+        b.addEventListener('click', function () {
+            var open = b.getAttribute('aria-expanded') !== 'true';
+            b.setAttribute('aria-expanded', String(open));
+            document.documentElement.classList.toggle('nav-open', open);
+        });
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && b.getAttribute('aria-expanded') === 'true') { b.click(); b.focus(); }
+        });
+    })();
+    </script>
 
 <script>
 // 全体のグローバル管理用（URL共有で使用）
@@ -601,7 +674,7 @@ function createSelectors() {
         }
 
         const html1 = `<div class="form-group">
-            <label>${item.name}</label>
+            <label for="p1_${key}">${item.name}</label>
             <select id="p1_${key}" onchange="updateSelectColor(this); runCalculation(); updateUrlParams();">
                 <option value="none" selected hidden>選択しない</option>
                 ${item.options.map(o => `<option value="${o[0]}">${o[1]}</option>`).join('')}
@@ -610,7 +683,7 @@ function createSelectors() {
         </div>`;
 
         const html2 = `<div class="form-group">
-            <label>${item.name}</label>
+            <label for="p2_${key}">${item.name}</label>
             <select id="p2_${key}" onchange="updateSelectColor(this); runCalculation(); updateUrlParams();">
                 <option value="none" selected hidden>選択しない</option>
                 ${item.options.map(o => `<option value="${o[0]}">${o[1]}</option>`).join('')}
@@ -1504,14 +1577,14 @@ function weightChartSvg(ws) {
     for (let i = 0; i <= 4; i++) {
         const g = gMin + (gMax - gMin) * i / 4;
         grid += `<line x1="${L}" x2="${W - R}" y1="${y(g)}" y2="${y(g)}" stroke="#ece9e1"/>
-            <text x="${L - 6}" y="${y(g) + 4}" text-anchor="end" font-size="11" fill="#8a7c6d">${Math.round(g * 10) / 10}</text>`;
+            <text x="${L - 6}" y="${y(g) + 4}" text-anchor="end" font-size="11" fill="#6b5f53">${Math.round(g * 10) / 10}</text>`;
     }
     const md = d => d.slice(5).replace('-', '/');
     const xLabels = [0, Math.floor((ws.length - 1) / 2), ws.length - 1].filter((v, i, a) => a.indexOf(v) === i)
-        .map(i => `<text x="${x(t[i])}" y="${H - 8}" text-anchor="middle" font-size="11" fill="#8a7c6d">${md(ws[i].d)}</text>`).join('');
+        .map(i => `<text x="${x(t[i])}" y="${H - 8}" text-anchor="middle" font-size="11" fill="#6b5f53">${md(ws[i].d)}</text>`).join('');
     const dots = ws.length <= 60 ? ws.map((w, i) => `<circle cx="${x(t[i]).toFixed(1)}" cy="${y(w.g).toFixed(1)}" r="3.5" fill="#9c7650"><title>${w.d} ${w.g}g</title></circle>`).join('') : '';
     return `<svg class="wchart" viewBox="0 0 ${W} ${H}" role="img" aria-label="体重の推移グラフ">
-        ${grid}<text x="${L}" y="10" font-size="10" fill="#8a7c6d">g</text>
+        ${grid}<text x="${L}" y="10" font-size="10" fill="#6b5f53">g</text>
         <polyline points="${pts}" fill="none" stroke="#5c4636" stroke-width="2.5" stroke-linejoin="round"/>
         ${dots}${xLabels}
     </svg>`;
@@ -1557,7 +1630,7 @@ function buildMorphSelects(containerId, prefix) {
     box.innerHTML = Object.keys(UI_CONFIG).map(key => {
         const item = UI_CONFIG[key];
         return `<div class="form-group">
-            <label>${item.name}</label>
+            <label for="${prefix}_${key}">${item.name}</label>
             <select id="${prefix}_${key}" onchange="updateSelectColor(this)">
                 <option value="none">選択しない</option>
                 ${item.options.map(o => `<option value="${o[0]}">${o[1]}</option>`).join('')}

@@ -1,10 +1,11 @@
 // ニシアフ・パレットをホーム画面から開いたとき、電波が無くても動くようにするための仕組み。
 // ページは「まずネット、だめなら手元の控え」、画像は「手元の控えがあればそれ」で返す。
 // 中身を変えたら CACHE の番号を上げる（古い控えが消える）。
-const CACHE = 'nishiafu-palette-v2';
+const CACHE = 'nishiafu-palette-v3';
 const CORE = [
   'palette.html',
   'manifest.webmanifest',
+  '../css/chrome.css',
   '../favicon-192.png',
   '../icon-1024.png',
   '../apple-touch-icon.png',

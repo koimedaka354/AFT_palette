@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>いきもの日和｜小さな生きものの、暮らしと選び方</title>
-    <meta name="description" content="ニシアフリカトカゲモドキをはじめ、小さな生きものたちの飼育方法や道具選び、モルフ計算ツールなどをまとめた「いきもの日和」。飼い主目線でわかりやすくお届けします。">
+    <meta name="description" content="めだかとニシアフリカトカゲモドキを飼っている「めだかちゃん」のサイト。うちの経験から書いた飼育ガイド、モルフ計算と飼育記録の無料ツール「ニシアフ・パレット」、LINEスタンプ、楽天のセール日程メモ。">
     <meta property="og:type" content="website">
     <meta property="og:title" content="いきもの日和｜小さな生きものの、暮らしと選び方">
     <meta property="og:description" content="ニシアフリカトカゲモドキをはじめ、小さな生きものたちの飼育方法や道具選び、モルフ計算ツールなどをまとめたサイトです。">
@@ -16,7 +16,8 @@
     <link rel="canonical" href="https://koimedaka354.github.io/AFT_palette/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/chrome.css">
     <link rel="stylesheet" href="css/site.css">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y2HG56PQSM"></script>
@@ -30,134 +31,155 @@
     <link rel="icon" type="image/png" sizes="48x48" href="favicon-48.png">
     <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
+    <a class="skip-link" href="#main">本文へ移動</a>
     <header class="site-header">
-        <div class="wrap">
-            <a class="site-logo" href="./">
-                <span class="mark">🌿</span>いきもの日和
-            </a>
-            <nav class="site-nav">
-                <a class="breadcrumb" href="https://note.com/projectyuruyuru" target="_blank" rel="noopener">note を見る</a>
+        <div class="sh-inner">
+            <a class="site-logo" href=""><svg viewBox="0 0 48 32" width="40" height="27" aria-hidden="true" focusable="false"><path d="M4 16c6-9 22-12 32-4l8-6v20l-8-6C26 28 10 25 4 16z" fill="#FF9770"/><path d="M36 12l8-6v20l-8-6z" fill="#F07A4F"/><circle cx="14" cy="14" r="3.2" fill="#2E2420"/><circle cx="15" cy="13" r="1" fill="#fff"/><path d="M20 21c3 1.5 7 1.5 10-1" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" opacity=".8"/></svg><span class="logo-text"><span class="logo-name">いきもの日和</span><span class="logo-en">Ikimono Biyori</span></span></a>
+            <button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false"><span class="nav-toggle-bar" aria-hidden="true"></span><span class="nav-toggle-label">メニュー</span></button>
+            <nav class="site-nav" id="site-nav" aria-label="サイト内メニュー">
+                <ul><li><a href="about.html">いきもの日和について</a></li><li><a href="guides.html">飼育ガイド</a></li><li><a href="medaka/">めだか</a></li><li><a href="nishiafu/">ニシアフ</a></li><li><a href="nishiafu/palette.html">ツール</a></li><li><a href="stickers/">スタンプ</a></li><li><a href="rakuten/">楽天メモ</a></li></ul>
+                <a class="nav-cta" href="about.html#contact">お問い合わせ</a>
             </nav>
         </div>
     </header>
 
-    <div class="hero">
-        <div class="wrap">
-            <span class="eyebrow">PET & CREATURE GUIDE</span>
-            <h1>小さな生きものたちの、<br>暮らしと選び方。</h1>
-            <p class="lead">爬虫類から観賞魚まで、実際にお世話をしている飼い主目線で、飼育方法や使っている道具、便利な計算ツールをジャンルごとにまとめています。</p>
-        </div>
+<main id="main">
 
-            <div class="hero-carousel" id="heroCarousel" role="region" aria-label="注目コンテンツ">
-                <div class="carousel-viewport">
-                    <button type="button" class="carousel-arrow carousel-arrow-prev" id="carouselPrev" aria-label="前のスライド">&#10094;</button>
-                    <button type="button" class="carousel-arrow carousel-arrow-next" id="carouselNext" aria-label="次のスライド">&#10095;</button>
-                    <div class="carousel-track" id="carouselTrack">
-                        <a class="carousel-slide slide-contain" href="nishiafu/palette.html">
-                            <div class="carousel-img-wrap"><img src="img/top.png" alt="ニシアフ・パレット" loading="lazy"></div>
-                            <div class="carousel-caption">
-                                <span class="tag">無料ツール</span>
-                                <h3>🧬 モルフ計算ツール「ニシアフ・パレット」</h3>
-                                <p>親のモルフを選ぶだけで生まれる子の見た目と確率を予測</p>
-                            </div>
-                        </a>
-                        <a class="carousel-slide slide-contain" href="rakuten/">
-                            <div class="carousel-img-wrap"><img src="img/rakuten-banner.jpg" alt="めだかちゃんの楽天メモ。マラソン・スーパーSALE・5と0のつく日がカレンダーでわかる" loading="lazy"></div>
-                        </a>
-                        <a class="carousel-slide" href="nishiafu/">
-                            <div class="carousel-img-wrap"><img src="img/card-nishiafu.png" alt="ニシアフリカトカゲモドキ" loading="lazy"></div>
-                            <div class="carousel-caption">
-                                <span class="tag">爬虫類</span>
-                                <h3>🦎 ニシアフリカトカゲモドキの飼い方</h3>
-                                <p>道具選びと日々のお世話のポイントをまとめて紹介</p>
-                            </div>
-                        </a>
-                        <a class="carousel-slide" href="medaka/">
-                            <div class="carousel-img-wrap"><img src="img/card-medaka.png" alt="めだか" loading="lazy"></div>
-                            <div class="carousel-caption">
-                                <span class="tag">観賞魚</span>
-                                <h3>🐟 めだかの飼い方</h3>
-                                <p>容器選びから季節の注意点、繁殖まで基本をまとめました</p>
-                            </div>
-                        </a>
-                        <a class="carousel-slide slide-contain" href="stickers/">
-                            <div class="carousel-img-wrap"><img src="img/sticker-banner.png" alt="めだかちゃんのLINEスタンプ ご紹介" loading="lazy"></div>
-                        </a>
-                    </div>
+    <section class="top-hero" aria-labelledby="hero-title">
+        <div class="wrap">
+            <div>
+                <span class="eyebrow">Small lives, small days</span>
+                <h1 id="hero-title">小さな生きものと、<br><em>ちいさな毎日</em>を。</h1>
+                <p class="lead">めだかとニシアフリカトカゲモドキを家で飼っている「めだかちゃん」のサイトです。毎日のお世話で気づいたこと、困って調べたこと、失敗から学んだことを、飼育ガイドと無料のツールにまとめています。</p>
+                <div class="hero-cta">
+                    <a class="btn btn-coral" href="guides.html">飼育ガイドを読む</a>
+                    <a class="btn btn-outline" href="nishiafu/palette.html">ニシアフ・パレットを使う</a>
                 </div>
-                <div class="carousel-dots" id="carouselDots"></div>
             </div>
-    </div>
-
-    <section class="block" style="padding-bottom:0;">
-        <div class="wrap">
-            <a class="rakuten-memo-band" href="rakuten/">
-                <img src="img/stickers/4/04-yattaa-sticker.png" alt="めだかちゃん">
-                <span class="txt"><strong>🛒 めだかちゃんの楽天メモ</strong><span>マラソン・SALE・5と0のつく日がカレンダーでわかる（毎日更新）</span></span>
-                <span class="go">見てみる →</span>
-            </a>
+            <div class="aquarium" role="img" aria-label="水草のあいだを、めだかが泳いでいる水槽。めだかちゃんが手を振っている">
+                <svg class="weed w1" viewBox="0 0 40 120" aria-hidden="true"><path d="M20 120 C 8 90 32 70 18 40 C 10 22 26 10 22 0" stroke="#5FA382" stroke-width="7" fill="none" stroke-linecap="round"/><path d="M22 120 C 34 96 12 80 28 56" stroke="#7FB99A" stroke-width="6" fill="none" stroke-linecap="round"/></svg>
+                <svg class="weed w2" viewBox="0 0 40 120" aria-hidden="true"><path d="M20 120 C 30 92 10 74 22 46 C 28 30 16 16 20 2" stroke="#7FB99A" stroke-width="7" fill="none" stroke-linecap="round"/></svg>
+                <svg class="fish f1" viewBox="0 0 48 32" aria-hidden="true"><path d="M4 16c6-9 22-12 32-4l8-6v20l-8-6C26 28 10 25 4 16z" fill="#FF9770"/><circle cx="14" cy="14" r="3" fill="#2E2420"/><circle cx="15" cy="13" r="1" fill="#fff"/></svg>
+                <svg class="fish f2" viewBox="0 0 48 32" aria-hidden="true"><path d="M4 16c6-9 22-12 32-4l8-6v20l-8-6C26 28 10 25 4 16z" fill="#FFD666"/><circle cx="14" cy="14" r="3" fill="#2E2420"/><circle cx="15" cy="13" r="1" fill="#fff"/></svg>
+                <svg class="fish f3" viewBox="0 0 48 32" aria-hidden="true"><path d="M4 16c6-9 22-12 32-4l8-6v20l-8-6C26 28 10 25 4 16z" fill="#FFFFFF"/><circle cx="14" cy="14" r="3" fill="#2E2420"/></svg>
+                <span class="bubble b1"></span><span class="bubble b2"></span><span class="bubble b3"></span>
+                <img class="chan" src="img/stickers/1/03-konnichiwa-sticker.png" alt="" width="370" height="320">
+            </div>
         </div>
     </section>
 
-    <section class="block intro-block">
+    <section class="block reveal" aria-labelledby="news-title">
         <div class="wrap">
-            <span class="eyebrow">PET & CREATURE GUIDE</span>
-            <h2 class="intro-heading">小さな生きものたちの、<br>暮らしと選び方。</h2>
-            <p class="intro-lead">爬虫類から観賞魚まで、実際にお世話をしている飼い主目線で、飼育方法や使っている道具、便利な計算ツールをジャンルごとにまとめています。</p>
-        </div>
-    </section>
-
-    <section class="block" style="padding-top:0;">
-        <div class="wrap">
-            <h2 class="section-title">更新情報・トピックス</h2>
+            <h2 class="section-title" id="news-title"><span class="eyebrow">News</span><br>お知らせ</h2>
             <div class="topics-list">
-                <a class="topics-item" href="nishiafu/">
-                    <span class="topics-date">2026-11-01</span>
+                <a class="topics-item" href="guides.html">
+                    <span class="topics-date">2026.11.01</span>
                     <span class="topics-text">ニシアフ・めだかの飼育ガイドを6本公開しました（体重の記録・冬の温度管理・モルフと遺伝・ペアリング・冬越し・毎朝の見回り）</span>
                 </a>
                 <a class="topics-item" href="nishiafu/palette.html?mode=my-tab">
-                    <span class="topics-date">2026-11-01</span>
+                    <span class="topics-date">2026.11.01</span>
                     <span class="topics-text">ニシアフ・パレットに「うちの子」を追加。飼っている子を何匹でも登録して、体重・ごはん・脱皮を記録できます</span>
                 </a>
+                <a class="topics-item" href="about.html">
+                    <span class="topics-date">2026.11.01</span>
+                    <span class="topics-text">運営者情報・お問い合わせのページを公開し、サイトのデザインを新しくしました</span>
+                </a>
                 <a class="topics-item" href="rakuten/">
-                    <span class="topics-date">2026-10-29</span>
+                    <span class="topics-date">2026.10.29</span>
                     <span class="topics-text">「めだかちゃんの楽天メモ」を追加。その日の楽天のイベントとエントリーページを毎日更新しています</span>
                 </a>
                 <a class="topics-item" href="stickers/">
-                    <span class="topics-date">2026-10-06</span>
-                    <span class="topics-text">LINEスタンプ第8弾「毎日使える敬語スタンプ」を追加。仕事や目上の人にも使えます</span>
-                </a>
-                <a class="topics-item" href="stickers/">
-                    <span class="topics-date">2026-10-04</span>
-                    <span class="topics-text">LINEスタンプ第7弾（キャラメル柄パーカー）を追加。ニシアフのページにもスタンプを紹介しました</span>
-                </a>
-                <a class="topics-item" href="stickers/">
-                    <span class="topics-date">2026-09-19</span>
-                    <span class="topics-text">めだかちゃんLINEスタンプの紹介ページを公開しました</span>
-                </a>
-                <a class="topics-item" href="medaka/">
-                    <span class="topics-date">2026-08-30</span>
-                    <span class="topics-text">めだかの飼育ガイドに、実際に使っている道具のリンクを追加しました</span>
-                </a>
-                <a class="topics-item" href="nishiafu/">
-                    <span class="topics-date">2026-08-30</span>
-                    <span class="topics-text">「いきもの日和」として生まれ変わり、めだかの飼育ガイドを追加しました</span>
-                </a>
-                <a class="topics-item" href="nishiafu/palette.html">
-                    <span class="topics-date">2026-08-16</span>
-                    <span class="topics-text">モルフ計算ツール「ニシアフ・パレット」の説明文を整えました</span>
+                    <span class="topics-date">2026.10.06</span>
+                    <span class="topics-text">LINEスタンプ第8弾「毎日使える敬語スタンプ」を追加しました</span>
                 </a>
             </div>
         </div>
     </section>
 
-    <section class="block">
+    <section class="block reveal" aria-labelledby="values-title">
         <div class="wrap">
-            <h2 class="section-title">飼育ガイド</h2>
-            <p class="section-sub">うちの子たちとの毎日から書いた読み物です</p>
+            <h2 class="section-title" id="values-title"><span class="eyebrow">Our Promise</span><br>いきもの日和が大切にしていること</h2>
+            <p class="section-sub">読んだ人の、生きものとの毎日が少し楽しくなるように。</p>
+            <div class="values">
+                <div class="value">
+                    <span class="num">01</span>
+                    <h3>うちで起きたことを書く</h3>
+                    <p>飼育ガイドは、運営者の飼育記録と体験がもとです。体験していないことを、体験したようには書きません。</p>
+                </div>
+                <div class="value">
+                    <span class="num">02</span>
+                    <h3>調べたことには出典を</h3>
+                    <p>温度の目安や繁殖の時期など、外の情報には出典を付けます。資料によって数字が違うときは、そう書きます。</p>
+                </div>
+                <div class="value">
+                    <span class="num">03</span>
+                    <h3>お世話を、もっと気軽に</h3>
+                    <p>モルフの計算や体重の記録など、手間のかかるところは無料のツールに。記録はあなたの端末の中だけに残ります。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="block reveal" aria-labelledby="service-title">
+        <div class="wrap">
+            <h2 class="section-title" id="service-title"><span class="eyebrow">Contents</span><br>いきもの日和でできること</h2>
+            <p class="section-sub">読む・計算する・記録する・ちょっと遊ぶ。</p>
+            <div class="services">
+                <a class="service" href="guides.html">
+                    <div class="pic"><img src="img/stickers/3/08-tanoshimi-sticker.png" alt="" width="370" height="320" loading="lazy"></div>
+                    <div class="txt"><span class="label">Guide</span><h3>飼育ガイド</h3><p>めだかとニシアフの飼い方を、うちの経験と出典つきで。</p><span class="more">ガイドを読む →</span></div>
+                </a>
+                <a class="service" href="nishiafu/palette.html">
+                    <div class="pic"><img src="img/stickers/6/05-soudane-sticker.png" alt="" width="370" height="320" loading="lazy"></div>
+                    <div class="txt"><span class="label">Tool</span><h3>ニシアフ・パレット</h3><p>モルフの交配計算と、うちの子の体重・ごはんの記録。無料・登録不要。</p><span class="more">使ってみる →</span></div>
+                </a>
+                <a class="service" href="stickers/">
+                    <div class="pic"><img src="img/stickers/1/main-240x240.png" alt="" width="240" height="240" loading="lazy"></div>
+                    <div class="txt"><span class="label">Stickers</span><h3>LINEスタンプ</h3><p>ニシアフ柄のパーカーを着た「めだかちゃん」のスタンプ。</p><span class="more">スタンプを見る →</span></div>
+                </a>
+                <a class="service" href="rakuten/">
+                    <div class="pic"><img src="img/stickers/4/04-yattaa-sticker.png" alt="" width="370" height="320" loading="lazy"></div>
+                    <div class="txt"><span class="label">Memo</span><h3>めだかちゃんの楽天メモ</h3><p>飼育用品をまとめ買いする前に見る、楽天のセール日程カレンダー。</p><span class="more">カレンダーを見る →</span></div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="block reveal" aria-labelledby="creatures-title">
+        <div class="wrap">
+            <h2 class="section-title" id="creatures-title"><span class="eyebrow">Our Creatures</span><br>うちの生きもの</h2>
+            <p class="section-sub">気になる子から、のぞいてみてください。</p>
+            <div class="creatures">
+                <a class="creature medaka" href="medaka/">
+                    <img src="img/card-medaka.png" alt="めだか" loading="lazy">
+                    <div>
+                        <span class="label">Medaka</span>
+                        <h3>めだか</h3>
+                        <p>ベランダの水鉢と室内の水槽で、桜小町・紅玉・月華ブルーなど、いろいろな品種を育てています。</p>
+                        <span class="more">めだかのページへ →</span>
+                    </div>
+                </a>
+                <a class="creature nishiafu" href="nishiafu/">
+                    <img src="img/card-nishiafu.png" alt="ニシアフリカトカゲモドキ" loading="lazy">
+                    <div>
+                        <span class="label">African Fat-tailed Gecko</span>
+                        <h3>ニシアフリカトカゲモドキ</h3>
+                        <p>だいふく、わらびもち。和菓子の名前の「和菓子チーム」と暮らしています。</p>
+                        <span class="more">ニシアフのページへ →</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="block reveal" aria-labelledby="guides-title">
+        <div class="wrap">
+            <h2 class="section-title" id="guides-title"><span class="eyebrow">New Guides</span><br>新しい飼育ガイド</h2>
+            <p class="section-sub">うちの子たちとの毎日から書いた読み物です。</p>
             <div class="guide-list">
                 <a class="guide-item" href="nishiafu/weight-record.html"><strong>⚖️ 体重は、量って残すと変化に気づける</strong><span>0.1g単位での量り方、記録のしかた、21gのあんこさんを誤飲で見送って見直したこと</span></a>
                 <a class="guide-item" href="nishiafu/heating.html"><strong>🌡️ 冬の温度管理｜パネルヒーターだけでは足りなかった</strong><span>床と空気の温度を分けて測る。天井から温めるヒーターを足した経緯と、やけど対策</span></a>
@@ -166,164 +188,158 @@
                 <a class="guide-item" href="medaka/winter.html"><strong>❄️ めだかの冬越し｜冬眠の水温と、室内で始まった産卵</strong><span>ケースの整理、冬眠に入る水温の目安とやらないこと、稚魚が1cmになるまで</span></a>
                 <a class="guide-item" href="medaka/daily-check.html"><strong>🌅 毎朝5分の見回りと、アライグマ対策</strong><span>見るところチェックリスト、気になったときにやること、秋の庭に来るアライグマ</span></a>
             </div>
+            <p class="more-link"><a class="btn btn-outline" href="guides.html">ガイドをすべて見る</a></p>
         </div>
     </section>
 
-    <section class="block">
+    <section class="block reveal" aria-labelledby="oneword-title">
         <div class="wrap">
-            <h2 class="section-title">ジャンルを選ぶ</h2>
-            <p class="section-sub">気になる生きものをタップしてください</p>
-
-            <div class="card-grid">
-                <a class="genre-card" href="nishiafu/">
-                    <div class="thumb"><img src="img/card-nishiafu.png" alt="ニシアフリカトカゲモドキ" loading="lazy"></div>
-                    <div class="body">
-                        <span class="tag">爬虫類</span>
-                        <h3>🦎 ニシアフリカトカゲモドキ</h3>
-                        <p>飼育に必要な道具、日々のお世話のポイント、モルフ(品種)交配予測ツール「ニシアフ・パレット」をまとめて紹介しています。</p>
-                        <span class="cta">見てみる →</span>
-                    </div>
-                </a>
-
-                <a class="genre-card" href="nishiafu/palette.html">
-                    <div class="thumb"><img src="img/top.png" alt="ニシアフ・パレット" loading="lazy"></div>
-                    <div class="body">
-                        <span class="tag">無料ツール</span>
-                        <h3>🧬 モルフ計算ツール「ニシアフ・パレット」</h3>
-                        <p>親のモルフを選ぶだけで、生まれてくる子の見た目と確率を予測。欲しいモルフから親の組み合わせを逆算検索することもできます。</p>
-                        <span class="cta">使ってみる →</span>
-                    </div>
-                </a>
-
-                <a class="genre-card" href="medaka/">
-                    <div class="thumb"><img src="img/card-medaka.png" alt="めだか" loading="lazy"></div>
-                    <div class="body">
-                        <span class="tag">観賞魚</span>
-                        <h3>🐟 めだか</h3>
-                        <p>容器・水・置き場所の準備から、日々のお世話、夏や台風・冬越しの対策、産卵と稚魚の育て方まで、屋外でも室内でも通用する基本をまとめています。</p>
-                        <span class="cta">見てみる →</span>
-                    </div>
-                </a>
-
-                <a class="genre-card" href="rakuten/">
-                    <div class="thumb"><img src="img/rakuten-banner.jpg" alt="めだかちゃんの楽天メモ" loading="lazy"></div>
-                    <div class="body">
-                        <span class="tag">お買い物メモ</span>
-                        <h3>🛒 めだかちゃんの楽天メモ</h3>
-                        <p>楽天お買い物マラソン・スーパーSALE・5と0のつく日・ふるさと納税の締め切りをカレンダーでまとめています。エントリーページへの入口つき。毎日更新。</p>
-                        <span class="cta">見てみる →</span>
-                    </div>
-                </a>
-
-                <a class="genre-card" href="stickers/">
-                    <div class="thumb"><img src="img/stickers/1/main-240x240.png" alt="めだかちゃんLINEスタンプ" loading="lazy"></div>
-                    <div class="body">
-                        <span class="tag">LINEスタンプ</span>
-                        <h3>💬 めだかちゃんLINEスタンプ</h3>
-                        <p>いきもの日和のキャラクター「めだかちゃん」のLINEスタンプを紹介しています。LINE Creators Marketで販売中。</p>
-                        <span class="cta">見てみる →</span>
-                    </div>
-                </a>
+            <h2 class="section-title" id="oneword-title"><span class="eyebrow">Today's Tip</span><br>めだかちゃんの、きょうのひとこと</h2>
+            <p class="section-sub">ボタンを押すたびに、飼育ガイドから小さなヒントが届きます。</p>
+            <div class="oneword" id="oneword">
+                <img id="oneword-img" src="img/stickers/2/03-naruhodo-sticker.png" alt="" width="370" height="320">
+                <div>
+                    <div class="bubble-box" id="oneword-text" aria-live="polite">めだかの冬眠は、カレンダーではなく水温が目安。10℃を下回ったら、エサはお休みにします。<a href="medaka/winter.html">冬越しのガイドへ</a></div>
+                    <button class="btn btn-mint" type="button" id="oneword-btn">もうひとこと</button>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer class="site-footer">
+    <section class="block reveal" aria-labelledby="operator-title">
         <div class="wrap">
-            <p>「いきもの日和」は projectyuruyuru（めだかちゃん）が運営しています。<a href="about.html">運営者情報・お問い合わせ</a></p>
-            <p>飼育に関する読み物は <a href="https://note.com/projectyuruyuru" target="_blank" rel="noopener">note</a> でも発信しています。</p>
-            <p class="sns-links">SNSでも発信中: <a href="https://www.youtube.com/@projectyuruyuru" target="_blank" rel="noopener">YouTube</a>・<a href="https://www.instagram.com/koimedaka354/" target="_blank" rel="noopener">Instagram</a>・<a href="https://www.tiktok.com/@harunomedaka" target="_blank" rel="noopener">TikTok</a>・<a href="https://www.threads.com/@koimedaka354" target="_blank" rel="noopener">Threads</a>・<a href="https://room.rakuten.co.jp/room_2e33071ec6" target="_blank" rel="noopener">楽天ROOM</a></p>
-            <p>本サイトの一部リンクにはアフィリエイト広告を含みます。</p>
+            <h2 class="section-title" id="operator-title"><span class="eyebrow">About</span><br>運営しているひと</h2>
+            <div class="operator">
+                <div class="avatar"><img src="img/stickers/5/02-nonbiri-sticker.png" alt="ニシアフ柄のパーカーを着ためだかちゃん" width="370" height="320" loading="lazy"></div>
+                <div>
+                    <h3>めだかちゃん（projectyuruyuru）</h3>
+                    <p>めだかとニシアフリカトカゲモドキを家で飼っています。毎朝5分、水鉢をのぞくのが1年以上続いている習慣。モルフの計算に自分で困ったことがきっかけで、ニシアフ・パレットを作りました。</p>
+                    <a class="btn btn-outline" href="about.html">運営者情報を見る</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="block reveal" aria-labelledby="contact-title">
+        <div class="wrap">
+            <div class="contact-band">
+                <span class="eyebrow">Contact</span>
+                <h2 id="contact-title">ご質問・ご感想は、質問箱へ</h2>
+                <p>飼育のこと、ツールの使い方、記事の誤りのご指摘など、なんでもどうぞ。匿名で送れます。</p>
+                <div class="btns">
+                    <a class="btn btn-coral" href="https://note.com/qa/projectyuruyuru" target="_blank" rel="noopener">質問箱をひらく</a>
+                    <a class="btn btn-outline" href="about.html#contact">お問い合わせについて</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+    <footer class="site-footer">
+        <svg class="sf-wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0 30 C 240 0 480 60 720 30 S 1200 0 1440 30 V60 H0z" fill="currentColor"/></svg>
+        <div class="sf-inner">
+            <div class="sf-brand">
+                <a class="site-logo sf-logo" href=""><svg viewBox="0 0 48 32" width="40" height="27" aria-hidden="true" focusable="false"><path d="M4 16c6-9 22-12 32-4l8-6v20l-8-6C26 28 10 25 4 16z" fill="#FF9770"/><path d="M36 12l8-6v20l-8-6z" fill="#F07A4F"/><circle cx="14" cy="14" r="3.2" fill="#2E2420"/><circle cx="15" cy="13" r="1" fill="#fff"/><path d="M20 21c3 1.5 7 1.5 10-1" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" opacity=".8"/></svg><span class="logo-text"><span class="logo-name">いきもの日和</span><span class="logo-en">Ikimono Biyori</span></span></a>
+                <p class="sf-copy">小さな生きものと、ちいさな毎日を。</p>
+                <p>めだかとニシアフリカトカゲモドキを飼っている「めだかちゃん」（projectyuruyuru）が運営しています。</p>
+            </div>
+            <div class="sf-col">
+                <h2>サイトについて</h2>
+                <ul>
+                    <li><a href="about.html">運営者情報</a></li>
+                    <li><a href="about.html#contact">お問い合わせ</a></li>
+                    <li><a href="privacy-policy.html">プライバシーポリシー</a></li>
+                    <li><a href="terms.html">利用規約</a></li>
+                </ul>
+            </div>
+            <div class="sf-col">
+                <h2>飼育ガイド</h2>
+                <ul>
+                    <li><a href="guides.html">ガイド一覧</a></li>
+                    <li><a href="medaka/">めだか</a></li>
+                    <li><a href="nishiafu/">ニシアフリカトカゲモドキ</a></li>
+                </ul>
+            </div>
+            <div class="sf-col">
+                <h2>コンテンツ</h2>
+                <ul>
+                    <li><a href="nishiafu/palette.html">ニシアフ・パレット</a></li>
+                    <li><a href="stickers/">LINEスタンプ</a></li>
+                    <li><a href="rakuten/">めだかちゃんの楽天メモ</a></li>
+                </ul>
+            </div>
+            <div class="sf-col">
+                <h2>SNS</h2>
+                <ul>
+                    <li><a href="https://note.com/projectyuruyuru" target="_blank" rel="noopener">note</a></li>
+                    <li><a href="https://www.instagram.com/koimedaka354/" target="_blank" rel="noopener">Instagram</a></li>
+                    <li><a href="https://www.threads.com/@koimedaka354" target="_blank" rel="noopener">Threads</a></li>
+                    <li><a href="https://www.youtube.com/@projectyuruyuru" target="_blank" rel="noopener">YouTube</a></li>
+                    <li><a href="https://www.tiktok.com/@harunomedaka" target="_blank" rel="noopener">TikTok</a></li>
+                    <li><a href="https://room.rakuten.co.jp/room_2e33071ec6" target="_blank" rel="noopener">楽天ROOM</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="sf-bottom">
+            <p>本サイトの一部のリンクには広告（楽天アフィリエイト）を含みます。</p>
+            <p>&copy; 2026 いきもの日和 / projectyuruyuru</p>
         </div>
     </footer>
-
     <script>
     (function () {
-        var track = document.getElementById('carouselTrack');
-        var dotsWrap = document.getElementById('carouselDots');
-        var prevBtn = document.getElementById('carouselPrev');
-        var nextBtn = document.getElementById('carouselNext');
-        if (!track || !dotsWrap) return;
-        var slides = track.children;
-        var total = slides.length;
-        var index = 0;
-        var intervalMs = 5000;
-        var timer = null;
-
-        for (var i = 0; i < total; i++) {
-            var dot = document.createElement('button');
-            dot.type = 'button';
-            dot.className = 'dot' + (i === 0 ? ' active' : '');
-            dot.setAttribute('aria-label', (i + 1) + '枚目を表示');
-            dot.addEventListener('click', (function (i) {
-                return function () { goTo(i); restart(); };
-            })(i));
-            dotsWrap.appendChild(dot);
-        }
-        var dots = dotsWrap.querySelectorAll('.dot');
-
-        function goTo(i) {
-            index = (i + total) % total;
-            track.style.transform = 'translateX(-' + (index * 100) + '%)';
-            for (var j = 0; j < dots.length; j++) {
-                dots[j].classList.toggle('active', j === index);
-            }
-        }
-        function next() { goTo(index + 1); }
-        function prev() { goTo(index - 1); }
-        function start() {
-            var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            if (reduceMotion) return;
-            timer = setInterval(next, intervalMs);
-        }
-        function stop() { if (timer) { clearInterval(timer); timer = null; } }
-        function restart() { stop(); start(); }
-
-        if (nextBtn) {
-            nextBtn.addEventListener('click', function (e) {
-                e.preventDefault();
-                next();
-                restart();
-            });
-        }
-        if (prevBtn) {
-            prevBtn.addEventListener('click', function (e) {
-                e.preventDefault();
-                prev();
-                restart();
-            });
-        }
-
-        // スマホのスワイプ操作
-        var touchStartX = 0;
-        var touchDeltaX = 0;
-        var dragging = false;
-        track.addEventListener('touchstart', function (e) {
-            touchStartX = e.touches[0].clientX;
-            touchDeltaX = 0;
-            dragging = true;
-            stop();
-        }, { passive: true });
-        track.addEventListener('touchmove', function (e) {
-            if (!dragging) return;
-            touchDeltaX = e.touches[0].clientX - touchStartX;
-        }, { passive: true });
-        track.addEventListener('touchend', function () {
-            if (!dragging) return;
-            dragging = false;
-            if (Math.abs(touchDeltaX) > 40) {
-                if (touchDeltaX < 0) next(); else prev();
-            }
-            touchDeltaX = 0;
-            restart();
+        var b = document.querySelector('.nav-toggle'), n = document.getElementById('site-nav');
+        if (!b || !n) return;
+        b.addEventListener('click', function () {
+            var open = b.getAttribute('aria-expanded') !== 'true';
+            b.setAttribute('aria-expanded', String(open));
+            document.documentElement.classList.toggle('nav-open', open);
         });
-
-        track.addEventListener('mouseenter', stop);
-        track.addEventListener('mouseleave', start);
-        goTo(0);
-        start();
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && b.getAttribute('aria-expanded') === 'true') { b.click(); b.focus(); }
+        });
     })();
     </script>
 
+    <script>
+    (function () {
+        // ふわっと出す
+        var els = document.querySelectorAll('.reveal');
+        if ('IntersectionObserver' in window) {
+            var io = new IntersectionObserver(function (es) {
+                es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+            }, { rootMargin: '0px 0px -8% 0px' });
+            els.forEach(function (el) { io.observe(el); });
+        } else {
+            els.forEach(function (el) { el.classList.add('in'); });
+        }
+        // めだかちゃんのひとこと（中身は各飼育ガイドに書いてあることだけ）
+        var tips = [
+            ['img/stickers/2/03-naruhodo-sticker.png', 'めだかの冬眠は、カレンダーではなく水温が目安。10℃を下回ったら、エサはお休みにします。', 'medaka/winter.html', '冬越しのガイドへ'],
+            ['img/stickers/5/03-pokapoka-sticker.png', 'ケージの温度は、床と空気の2か所で測ると、冬の冷え込みに気づきやすくなります。', 'nishiafu/heating.html', '温度管理のガイドへ'],
+            ['img/stickers/5/07-jitto-sticker.png', 'ニシアフの体重は、0.1g単位のはかりで、ごはんの前に量ると比べやすくなります。', 'nishiafu/weight-record.html', '体重記録のガイドへ'],
+            ['img/stickers/6/05-soudane-sticker.png', 'Het × Hetで見た目がノーマルの子は「66%ポッシブルHet」。見た目では見分けられません。', 'nishiafu/morph-basics.html', 'モルフのガイドへ'],
+            ['img/stickers/3/02-kiwotsukete-sticker.png', '冬眠中のめだかは、水換えをしないのが基本。水が減ったら足し水だけにします。', 'medaka/winter.html', '冬越しのガイドへ'],
+            ['img/stickers/7/05-gyu-sticker.png', 'ホワイトアウト同士のペアは、計算上25%が致死の組み合わせになります。', 'nishiafu/pairing.html', 'ペアリングのガイドへ'],
+            ['img/stickers/1/08-ganbaru-sticker.png', '習慣にするコツは「のぞくだけ」まで小さくすること。毎朝5分の見回りは、それで1年以上続いています。', 'medaka/daily-check.html', '見回りのガイドへ'],
+            ['img/stickers/7/01-itadakimasu-sticker.png', 'ニシアフ・パレットの「うちの子」なら、何匹でも体重とごはんを記録できます。', 'nishiafu/palette.html?mode=my-tab', 'うちの子をひらく']
+        ];
+        var i = 0, box = document.getElementById('oneword'), img = document.getElementById('oneword-img'),
+            text = document.getElementById('oneword-text'), btn = document.getElementById('oneword-btn');
+        if (!btn) return;
+        btn.addEventListener('click', function () {
+            i = (i + 1 + Math.floor(Math.random() * (tips.length - 1))) % tips.length;
+            var t = tips[i];
+            img.src = t[0];
+            text.innerHTML = '';
+            text.appendChild(document.createTextNode(t[1]));
+            var a = document.createElement('a'); a.href = t[2]; a.textContent = t[3];
+            text.appendChild(a);
+            box.classList.remove('pop'); void box.offsetWidth; box.classList.add('pop');
+            setTimeout(function () { box.classList.remove('pop'); }, 400);
+            if (typeof gtag === 'function') gtag('event', 'oneword_click');
+        });
+    })();
+    </script>
 </body>
 </html>
