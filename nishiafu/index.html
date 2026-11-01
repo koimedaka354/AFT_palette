@@ -238,6 +238,12 @@
             if (e.key === 'Escape' && b.getAttribute('aria-expanded') === 'true') { b.click(); b.focus(); }
         });
     })();
+    // 画像（販売しているスタンプの絵など）を右クリック・長押し・ドラッグで保存できないようにする（代表指示 2026-11-01）
+    (function () {
+        var isImg = function (t) { return t && t.closest && t.closest('img, picture, svg, .aquarium'); };
+        document.addEventListener('contextmenu', function (e) { if (isImg(e.target)) e.preventDefault(); });
+        document.addEventListener('dragstart', function (e) { if (isImg(e.target)) e.preventDefault(); });
+    })();
     </script>
 
 </body>

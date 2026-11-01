@@ -48,6 +48,9 @@
     --header-h: 68px;
 }
 
+/* ---------- 画像の保存を防ぐ（長押しメニュー・ドラッグ・選択）。右クリックは site-chrome.js の footer() 内のスクリプト ---------- */
+img { -webkit-touch-callout: none; -webkit-user-drag: none; user-select: none; -webkit-user-select: none; }
+
 /* ---------- 本文へ移動（キーボード操作用） ---------- */
 .skip-link {
     position: absolute; left: 12px; top: -60px; z-index: 100;
